@@ -60,7 +60,7 @@ public class ReceivablesActivity extends BaseActivity {
 	public static int[] selectedimages = { R.drawable.zhufubao_pay_icon,
 			R.drawable.weixin_pay_icon, R.drawable.jd_pay_icon };
 
-	private int currentType;// 0=支付宝支付，1=微信支付，2=qq支付
+	private int currentType = 1;// 0=支付宝支付，1=微信支付，2=qq支付
 	public static String payTypeValue = "payTypeValue";
 	public static String WebUrl = "WebUrl";
 	public static String WebTitle = "WebTitle";
@@ -189,6 +189,9 @@ public class ReceivablesActivity extends BaseActivity {
 		ibDel.setOnClickListener(this);
 		ibNum.setOnClickListener(this);
 		ibDot.setOnClickListener(this);
+		
+		galler_left.setOnClickListener(this);
+		galler_right.setOnClickListener(this);
 	};
 
 	@Override
@@ -214,9 +217,8 @@ public class ReceivablesActivity extends BaseActivity {
 		int width = quite_width;
 
 		adapter = new ImageAdapter(this, images, selectedimages, quite_width);
-
 		gallery_pay_table.setAdapter(adapter);
-		gallery_pay_table.setSelection(2);
+		gallery_pay_table.setSelection(currentType);
 
 		gallery_pay_table.setOnItemClickListener(new OnItemClickListener() {
 			@Override
@@ -361,6 +363,30 @@ public class ReceivablesActivity extends BaseActivity {
 			msg.what = 4;
 			msg.getData().putString("c", "");
 			handler.sendMessage(msg);
+			break;
+		case R.id.galler_left:
+			currentType --;
+			if(currentType < 0)
+			{
+				currentType = 2;
+			}
+			else if(currentType > 2)
+			{
+				currentType = 0;
+			}
+			gallery_pay_table.setSelection(currentType+1);
+			break;
+		case R.id.galler_right:
+			currentType ++;
+			if(currentType < 0)
+			{
+				currentType = 2;
+			}
+			else if(currentType > 2)
+			{
+				currentType = 0;
+			}
+			gallery_pay_table.setSelection(currentType+1);
 			break;
 		default:
 			break;

@@ -43,6 +43,7 @@ public class LoginActivity extends BaseActivity {
 	private Re_LoginEntity reLoginEntity;
 	private boolean remenberPass = true;
 
+	private boolean DEBUG = false;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -82,18 +83,48 @@ public class LoginActivity extends BaseActivity {
 		et_usrePhone.setOnClickListener(this);
 		et_usrePas = (EditText) findViewById(R.id.et_usrePas);
 		et_usrePas.setOnClickListener(this);
-		initAccount();
+		if(DEBUG)
+		{
+			et_usrePhone.setText("000140000000000003");
+			et_usrePas.setText("777777");
+		}
+		
+		int rememberPassFlag = LoginUtils.getRemenberpass(LoginActivity.this);
+		if(rememberPassFlag == 1)
+		{
+			tv_remenberPas_img
+			.setImageResource(R.drawable.box_select_choose_01);
+		}
+		else if(rememberPassFlag == 0)
+		{
+			tv_remenberPas_img
+			.setImageResource(R.drawable.box_select_default_01);
+		}
+		else 
+		{
+			tv_remenberPas_img
+			.setImageResource(R.drawable.box_select_choose_01);
+			LoginUtils.setRemenberPass(LoginActivity.this, 1);
+		}
 		//et_usrePas.setText("6a50cd7a190047dcb15cfcc8b5eefcf8");
 		//et_usrePhone.setText("000010000000001");
 		
 	}
 	
+	@Override
+	protected void onResume()
+	{
+		// TODO Auto-generated method stub
+		super.onResume();
+		initAccount();
+	}
+
 	public void initAccount(){
 		String account = LoginUtils.getAccount(LoginActivity.this);
 		if (account != null && !account.equals("")) {
 			et_usrePhone.setText(account); 
 		}
-		if (LoginUtils.getRemenberpass(LoginActivity.this)) {
+		if (LoginUtils.getRemenberpass(LoginActivity.this) == 1) {
 			 String passwordString = LoginUtils.getpass(LoginActivity.this);
 			 if (passwordString != null && !passwordString.equals("")) {
 				 et_usrePas.setText(passwordString);
@@ -159,6 +190,7 @@ public class LoginActivity extends BaseActivity {
 				DialogUtil.getInstance(LoginActivity.this).stopProgressDialog();
 				intent = new Intent(LoginActivity.this, MainTabActivity.class);
 				startActivity(intent);
+				MyApplication.getInstance().onLoginSuccess();
 				finish();
 				break;
 			case 6:
@@ -185,11 +217,15 @@ public class LoginActivity extends BaseActivity {
 
 	
 	public void setisRemenberPass(String pass,String account){
-		boolean flag = LoginUtils.getRemenberpass(LoginActivity.this);
+		int rememberPass = LoginUtils.getRemenberpass(LoginActivity.this);
 		LoginUtils.setAccount(LoginActivity.this, account);
-		if (flag) {
+		if (rememberPass == 1) {
 			LoginUtils.setPass(LoginActivity.this, pass);
 		}
+		else{
+			LoginUtils.setPass(LoginActivity.this, "");
+		}
+			
 	}
 	/**
 	 * 检查登陆输入信息
@@ -306,28 +342,10 @@ public class LoginActivity extends BaseActivity {
 			startActivity(intent);
 			break;
 		case R.id.tv_remenberPas_img:
-			if (remenberPass) {
-				tv_remenberPas_img
-						.setImageResource(R.drawable.box_select_default_01);
-				remenberPass = false;
-				LoginUtils.setRemenberPass(LoginActivity.this, -1);
-			} else {
-				tv_remenberPas_img
-						.setImageResource(R.drawable.box_select_choose_01);
-				remenberPass = true;
-				LoginUtils.setRemenberPass(LoginActivity.this, 1);
-			}
+			updateRemembePassStatus(!remenberPass);
 			break;
 		case R.id.tv_remenberPas:
-			if (remenberPass) {
-				tv_remenberPas_img
-						.setImageResource(R.drawable.box_select_default_01);
-				remenberPass = false;
-			} else {
-				tv_remenberPas_img
-						.setImageResource(R.drawable.box_select_choose_01);
-				remenberPass = true;
-			}
+			updateRemembePassStatus(!remenberPass);
 			break;
 		case R.id.et_usrePhone:
 
@@ -342,4 +360,20 @@ public class LoginActivity extends BaseActivity {
 		}
 	}
 
+	private void updateRemembePassStatus(boolean bRememberPass)
+	{
+		if(bRememberPass != remenberPass)
+		{
+			remenberPass = bRememberPass;
+			if (remenberPass) {
+				tv_remenberPas_img
+				.setImageResource(R.drawable.box_select_choose_01);
+				LoginUtils.setRemenberPass(LoginActivity.this, 1);
+			} else {
+				tv_remenberPas_img
+				.setImageResource(R.drawable.box_select_default_01);
+				LoginUtils.setRemenberPass(LoginActivity.this, 0);
+			}
+		}
+	}
 }

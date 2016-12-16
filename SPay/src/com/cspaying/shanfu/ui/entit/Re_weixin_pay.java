@@ -7,6 +7,7 @@ public class Re_weixin_pay {
 	  private String returnMsg;
 	  private String outTradeNo;
 	  private String codeUrl;
+	  private String payCode;
 	  private String resultCode;
 	  private String returnCode;
 	  private String sign;
@@ -57,6 +58,14 @@ public class Re_weixin_pay {
 	}
 	public void setCodeUrl(String codeUrl) {
 		this.codeUrl = codeUrl;
+	}
+	
+	public String getPayCode() {
+		return payCode;
+	}
+	public void setPayCode(String payCode) {
+		//this.codeUrl = payCode;
+		this.payCode = payCode;
 	}
 	
 	public String getTransTime() {

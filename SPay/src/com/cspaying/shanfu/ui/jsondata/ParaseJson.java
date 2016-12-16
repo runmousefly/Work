@@ -271,7 +271,8 @@ public class ParaseJson {
 			}
 			// list = Json.fromJson(StatisticsEntity.class, data);  
 		} catch (Exception e) {
-			Log.e("ParasepostStatistics", e.getLocalizedMessage());
+			Log.e("ParasepostStatistics", "ParasepostStatistics exception");
+			e.printStackTrace();
 		}
 		return list;     
 	}

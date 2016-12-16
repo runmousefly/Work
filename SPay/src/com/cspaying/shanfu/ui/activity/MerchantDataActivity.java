@@ -54,7 +54,15 @@ public class MerchantDataActivity extends BaseActivity{
 		MyApplication.getInstance().addActivity(this);
 		initView();
 		initSppiner();
-		postShanghuxinxi();
+		MerchantInformation mMerchData = MyApplication.getInstance().getMerchantInformation();
+		if(mMerchData != null)
+		{
+			initInfomation(mMerchData);
+		}
+		else
+		{
+			postShanghuxinxi();
+		}
 	}
 
 	private void initView() {
@@ -96,6 +104,7 @@ public class MerchantDataActivity extends BaseActivity{
 				// TODO Auto-generated method stub
 				Message message = new Message();
 				if (statusCode ==0) {
+					LoginUtils.setMerchantData(MyApplication.getContext(), str, null);
 					message.what = 1;
 					message.obj = str;
 				}else {
@@ -137,8 +146,8 @@ public class MerchantDataActivity extends BaseActivity{
  	public void initInfomation(MerchantInformation Entity){
  		MerchantName.setText(Entity.getMchName());
  		industryName.setText(Entity.getIndustry());
- 		privance.setText(Entity.getPro());
- 		city.setText(Entity.getCity());
+ 		//privance.setText(Entity.getPro());
+ 		city.setText(Entity.getPro()+Entity.getCity());
  		email.setText(Entity.getEmail());
         blankname.setText(Entity.getBankType());
  	    blank_web.setText(Entity.getBankName());

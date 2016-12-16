@@ -4,8 +4,8 @@
     android:layout_height="match_parent"
     android:background="@color/whitesmoke"
     android:paddingBottom="10dp"
-    android:paddingLeft="20dp"
-    android:paddingRight="20dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
     android:paddingTop="10dp" >
 
     <ImageView
@@ -29,7 +29,7 @@
         android:id="@+id/pay_total_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/pay_img"
+        android:layout_below="@+id/pay_text"
         android:layout_marginLeft="10dp"
         android:layout_toRightOf="@+id/pay_img"
         android:textColor="@color/mid_grey"

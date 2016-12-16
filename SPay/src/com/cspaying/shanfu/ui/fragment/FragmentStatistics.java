@@ -107,6 +107,7 @@ public class FragmentStatistics extends Fragment implements IXListViewListener{
 				OrderDetail entity = (OrderDetail) orderAdapter.getItem(arg2);
 				String mchId = LoginUtils.getLoginMcid(getActivity());
 				String outTradeNo = entity.getOutRradeNo();
+				String tradeStatus = entity.getStatus();
 				String type;
 				if (currrentType ==0) {
 					 type = "1";
@@ -117,6 +118,7 @@ public class FragmentStatistics extends Fragment implements IXListViewListener{
 				intent.putExtra(OrderDetailsActivity.mchIdKey, mchId);
 				intent.putExtra(OrderDetailsActivity.outTradeNoKey, outTradeNo);
 				intent.putExtra(OrderDetailsActivity.queryTypeKey, type);
+				intent.putExtra(OrderDetailsActivity.queryStatusKey, tradeStatus);
 				startActivity(intent);
 			}
 		});

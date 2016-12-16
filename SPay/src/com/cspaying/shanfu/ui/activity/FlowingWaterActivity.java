@@ -147,10 +147,11 @@ public class FlowingWaterActivity extends FragmentActivity implements
 				title_tv.setText("￥" + payValue);
 			}
 			
-			have_finish.setText("已支付" + paynum + "笔");
+			have_finish.setText(payState + paynum + "笔");
 			
 			have_finish.setVisibility(View.VISIBLE);
-			had_pay.setText("已支付");
+			//had_pay.setText("已支付");
+			had_pay.setText(payState);
 			had_pay.setVisibility(View.VISIBLE);
 		} else if (position == 1) {
 			tvFlowingWater.setText(DateString);
@@ -174,7 +175,7 @@ public class FlowingWaterActivity extends FragmentActivity implements
 			this.paynum = num;
 			this.payValue = payValue;
 			title_tv.setText("￥" + payValue);
-			have_finish.setText("已支付" + num + "笔");
+			have_finish.setText(payState + num + "笔");
 		} else if (currentIndex == 1) {
 			this.tuinum = num;
 			this.tuiValue= payValue;

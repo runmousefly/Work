@@ -227,11 +227,19 @@ public class Statistics1Fragment extends Fragment implements OnClickListener,
 		}
 	}
 
-	@SuppressLint("NewApi") public void refresh(ArrayList<Statistics1Entity> list) {
+	@SuppressLint("NewApi") 
+	public void refresh(ArrayList<Statistics1Entity> list) {
 		Log.d("refresh adapter", " " + mList.size());
-		mWebView.evaluateJavascript("javascript:initData(" + mkJavaScriptStr(list) + ")", null);
-		adapter.refresh(list);
-		// adapter.notifyDataSetChanged();
+		try
+		{
+			mWebView.evaluateJavascript("javascript:initData(" + mkJavaScriptStr(list) + ")", null);
+			adapter.refresh(list);
+			// adapter.notifyDataSetChanged();
+		} catch (Exception e)
+		{
+			// TODO: handle exception
+			e.printStackTrace();
+		}
 	}
 
 	public Handler getmHandler() {

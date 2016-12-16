@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.math.MathContext;
 import java.util.Calendar;
 
 import android.content.Context;
@@ -19,7 +20,9 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
+import android.view.View.OnLongClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -27,6 +30,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import cn.sharesdk.onekeyshare.OnekeyShare;
 
 import com.cspaying.shanfu.R;
 import com.cspaying.shanfu.ui.BaseActivity;
@@ -43,6 +47,7 @@ import com.google.zxing.WriterException;
 
 public class RececodeActivity extends BaseActivity {
 
+	private static final String TAG = "RececodeActivity";
 	private RelativeLayout layTitle;
 	private LinearLayout layScaCode;
 	private TextView tvTitle, tvAmount, tvPayType;
@@ -58,12 +63,16 @@ public class RececodeActivity extends BaseActivity {
 	private int currentType = 0;
 	private CustomProgressDialog progressDialog;
 	private LinearLayout save_code;
+	private Context mContext = null;
+	private String mRecvCodeUrl = null;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
+		
 		setContentView(R.layout.rece_code_pay_main);
 		MyApplication.getInstance().addActivity(this);
+		mContext = this;
 		getIntents();
 		initView();
 		
@@ -97,6 +106,16 @@ public class RececodeActivity extends BaseActivity {
 		//layScaCode.setVisibility(View.VISIBLE);
 		//layScaCode.setOnClickListener(this);
 		
+		ivScanCodePay.setOnLongClickListener(new OnLongClickListener()
+		{
+			@Override
+			public boolean onLongClick(View v)
+			{
+				// TODO Auto-generated method stub
+				showShare(mContext);
+				return false;
+			}
+		});
 
 	}
 	
@@ -136,8 +155,14 @@ public class RececodeActivity extends BaseActivity {
 			canvas.drawBitmap(logoBmp, qrCodeBitmap.getWidth() / 2
 					- logoBmp.getWidth() / 2, qrCodeBitmap.getHeight()
 					/ 2 - logoBmp.getHeight() / 2, null);
+			
+			cacheReceCode(mContext);
 			//------------------添加logo部分------------------//
+			mRecvCodeUrl = codeUrl;
 			ivScanCodePay.setImageBitmap(bitmapimg);
+			
+			//保存固定二维码到本地
+			
 		} catch (WriterException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -276,11 +301,28 @@ public class RececodeActivity extends BaseActivity {
 		}
 	}
 	
+	public  void cacheReceCode(Context context) {
+	    File appDir = new File(context.getCacheDir(), "QPay");
+	    if (!appDir.exists()) {
+	        appDir.mkdir();
+	    }
+	    String fileName = "paycode.png";
+	    File file = new File(appDir, fileName);
+	    try {
+	        FileOutputStream fos = new FileOutputStream(file);
+	        bitmapimg.compress(Bitmap.CompressFormat.PNG, 100, fos);
+	        fos.flush();
+	        fos.close();
+	    } catch (FileNotFoundException e) {
+	        e.printStackTrace();
+	    } catch (IOException e) {
+	        e.printStackTrace();
+		}
+	}
+	
 	public  void saveImageToGallery(Context context) {
 	    // 首先保存图片
-		
-		
-	    File appDir = new File(Environment.getExternalStorageDirectory(), "Boohee");
+	    File appDir = new File(Environment.getExternalStorageDirectory(), "Qpay");
 	    if (!appDir.exists()) {
 	        appDir.mkdir();
 	    }
@@ -314,7 +356,42 @@ public class RececodeActivity extends BaseActivity {
 	}
 
 
-	
+	//二维码分享
+    private void showShare(Context context) 
+    {
+    	 OnekeyShare oks = new OnekeyShare();
+    	 //关闭sso授权
+    	 oks.disableSSOWhenAuthorize(); 
+    	 // title标题，印象笔记、邮箱、信息、微信、人人网、QQ和QQ空间使用
+    	 //oks.setTitle("QPay固定收款二维码");
+    	 // titleUrl是标题的网络链接，仅在Linked-in,QQ和QQ空间使用
+    	// oks.setTitleUrl("http://www.cspaying.com");
+    	 // text是分享文本，所有平台都需要这个字段
+    	// oks.setText("QPay固定收款二维码");
+    	 //分享网络图片，新浪微博分享网络图片需要通过审核后申请高级写入接口，否则请注释掉测试新浪微博
+    	 String shareImgPath = context.getCacheDir().getAbsolutePath()+"/QPay/paycode.png";
+    	 File shareFile = new File(shareImgPath);
+    	 if(!shareFile.exists())
+    	 {
+    		 Log.e(TAG, "share failed!");
+    		 return;
+    	 }
+ 	     oks.setImagePath(shareImgPath);
+    	 // imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
+    	 //oks.setImagePath("/sdcard/test.jpg");//确保SDcard下面存在此张图片
+    	 // url仅在微信（包括好友和朋友圈）中使用
+    	 //oks.setUrl(mRecvCodeUrl);
+    	 // comment是我对这条分享的评论，仅在人人网和QQ空间使用
+    	 oks.setComment("深圳前海乘势科技有限公司");
+    	 // site是分享此内容的网站名称，仅在QQ空间使用
+    	// oks.setSite("深圳前海乘势科技有限公司");
+    	 // siteUrl是分享此内容的网站地址，仅在QQ空间使用
+    	 //oks.setSiteUrl("http://www.cspaying.com");
+
+    	// 启动分享GUI
+    	 oks.show(this);
+    	 }
+    
 	 /**
      * 开始ProgressDialog()
      */

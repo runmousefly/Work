@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 import android.app.TabActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Window;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
@@ -12,10 +14,15 @@ import android.widget.TabHost;
 
 import com.cspaying.shanfu.R;
 import com.cspaying.shanfu.ui.MyApplication;
+import com.cspaying.shanfu.ui.jsondata.InitJson;
+import com.cspaying.shanfu.ui.service.HttpUtil;
+import com.cspaying.shanfu.ui.service.HttpUtil.OnRequestListener;
+import com.cspaying.shanfu.ui.utils.LoginUtils;
 
 public class MainTabActivity extends TabActivity implements
 		OnCheckedChangeListener {
 
+	private static final String TAG = "MainTabActivity";
 	private TabHost mTabHost;
 	private Intent mAIntent;
 	private Intent mBIntent;
@@ -23,6 +30,8 @@ public class MainTabActivity extends TabActivity implements
 	private Intent mDIntent;
 	private Intent mEIntent;
 	private RadioButton rbFlowingWater;
+	private boolean mIsInLoginOut = false;
+	
 
 	/** Called when the activity is first created. */
 	@Override
@@ -75,6 +84,46 @@ public class MainTabActivity extends TabActivity implements
 		}
 
 	}
+	
+	@Override
+	protected void onResume()
+	{
+		// TODO Auto-generated method stub
+		super.onResume();
+	}
+
+	@Override
+	protected void onDestroy()
+	{
+		// TODO Auto-generated method stub
+		super.onDestroy();
+	}
+
+	
+	@Override
+	public boolean dispatchKeyEvent(KeyEvent event)
+	{
+		// TODO Auto-generated method stub
+		if (event.getKeyCode() == KeyEvent.KEYCODE_BACK 
+				&& event.getAction() == KeyEvent.ACTION_UP) {
+			if(!mIsInLoginOut)
+			{
+				mIsInLoginOut = true;
+				LoginUtils.setLoginFlag(MainTabActivity.this, 2);
+				PostCancel_login();
+			}            
+			return false;
+        }
+		return super.dispatchKeyEvent(event);
+	}
+
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event)
+	{
+		// TODO Auto-generated method stub
+		
+		return super.onKeyDown(keyCode, event);
+	}
 
 	private void setupIntent() {
 		this.mTabHost = getTabHost();
@@ -104,4 +153,29 @@ public class MainTabActivity extends TabActivity implements
 				.setContent(content);
 	}
 
+	public void PostCancel_login(){
+		String loginInfo = LoginUtils.getLoginName(MainTabActivity.this);
+		String token = LoginUtils.getLoginToken(MainTabActivity.this);
+		String jsonData = InitJson.getInstance(MainTabActivity.this)
+			.Cancellation_login("cs.mert.logout", "1.0",loginInfo
+			,token);
+		
+		HttpUtil.getInstance(MainTabActivity.this).reques(jsonData,HttpUtil.baseUrl, 
+				new OnRequestListener() {
+			
+			@Override
+			public void onResult(int statusCode, String str) {
+				// TODO Auto-generated method stub
+				//if(statusCode == 0)
+				{
+					Log.i(TAG, "login out success");
+					Intent intent = new Intent(MainTabActivity.this, LoginActivity.class);
+					startActivity(intent);
+					mIsInLoginOut = false;
+					finish();
+				}
+			}
+		});
+	}
+	
 }

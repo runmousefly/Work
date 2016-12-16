@@ -2,6 +2,9 @@ package com.cspaying.shanfu.ui.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
+import android.net.PskKeyManager;
+import cn.sharesdk.wechat.utils.i;
 
 public class LoginUtils {
 
@@ -18,6 +21,10 @@ public class LoginUtils {
 		if (context != null && value != 0) {
 			SharedPreferences sharedPreferences = context.getSharedPreferences(
 					"Loginshare", Context.MODE_PRIVATE);
+			if(getRemenberpass(context) != 1)
+			{
+				setPass(context, "");
+			}
 			flag = sharedPreferences.edit().putInt("logginflag", value)
 					.commit();
 		}
@@ -228,17 +235,14 @@ public class LoginUtils {
 	 * @param context
 	 * @return
 	 */
-	public static boolean getRemenberpass(Context context) {
-		boolean flag = false;
+	public static int getRemenberpass(Context context) {
+		int ret = -1;
 		if (context != null) {
 			SharedPreferences sharedPreferences = context.getSharedPreferences(
 					"Loginshare", Context.MODE_PRIVATE);
-			int re = sharedPreferences.getInt("RemenberPass", 0);
-			if (re ==1) {
-				flag =true;
-			}
+			ret = sharedPreferences.getInt("RemenberPass", -1);
 		}
-		return flag;
+		return ret;
 	}
 	
 	/**
@@ -288,6 +292,11 @@ public class LoginUtils {
 		if (context != null) {
 			SharedPreferences sharedPreferences = context.getSharedPreferences(
 					"Loginshare", Context.MODE_PRIVATE);
+			String strHistoryPass = sharedPreferences.getString("Pass", "");
+			if(strHistoryPass != null && strHistoryPass.equals(pass))
+			{
+				return true;
+			}
 			flag = sharedPreferences.edit().putString("Pass", pass).commit();
 		}
 		return flag;
@@ -325,6 +334,56 @@ public class LoginUtils {
 			flag = sharedPreferences.edit().putString("Account", account).commit();
 		}
 		return flag;
+	}
+	
+	/**
+	 * 保存商户资料
+	 * 
+	 * @param context
+	 * @return
+	 */
+	public static boolean setMerchantData(Context context, String merchdata,String loginName) {
+		boolean flag = false;
+		if(loginName == null)
+		{
+			loginName = getLoginMcid(context);
+		}
+		if (context != null && merchdata != null && !merchdata.equals("")
+				&& loginName != null && !loginName.equals("")) {
+			SharedPreferences sharedPreferences = context.getSharedPreferences(
+					"Loginshare", Context.MODE_PRIVATE);
+			Editor editor = sharedPreferences.edit();
+			editor.putString("merchantDataId",loginName);
+			editor.putString("merchantData", merchdata);
+			flag = editor.commit();
+		}
+
+		return flag;
+	}
+
+	/**
+	 * 获取本地商户资料
+	 * 
+	 * @param context
+	 * @return
+	 */
+	public static String getMerchantData(Context context) {
+		String flag = null;
+		if (context != null) {
+
+			SharedPreferences sharedPreferences = context.getSharedPreferences(
+					"Loginshare", Context.MODE_PRIVATE);
+			String merchDataId = sharedPreferences.getString("merchantDataId", "");
+			if(merchDataId == null || merchDataId.length() == 0)
+			{
+				return null;
+			}
+			if(merchDataId.equals(getLoginMcid(context)))
+			{
+				return sharedPreferences.getString("merchantData", "");
+			}
+		}
+		return null;
 	}
 
 }

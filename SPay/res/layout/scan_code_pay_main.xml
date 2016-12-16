@@ -53,6 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#3797d1"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal" >
 
             <TextView
@@ -69,6 +70,24 @@
                 android:gravity="center|left"
                 android:padding="10dp"
                 android:text="扫一扫完成支付"
+                android:textColor="@color/white" />
+        </LinearLayout>
+        
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#3797d1"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:id="@+id/save_code" >
+
+            <TextView
+                android:id="@+id/tv_scanCodePayType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center|left"
+                android:padding="10dp"
+                android:text="保存二维码到相册"
                 android:textColor="@color/white" />
         </LinearLayout>
     </LinearLayout>

@@ -38,11 +38,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
                 android:text="商户信息"
-                android:textSize="15sp" 
-                android:layout_marginLeft="5dp"/>
+                android:textSize="15sp" />
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -68,9 +68,10 @@
                     <Spinner
                         android:id="@+id/hangye_sp"
                         android:layout_width="fill_parent"
-                        android:layout_height="wrap_content" 
+                        android:layout_height="wrap_content"
                         android:background="@null"
-                        android:visibility="gone"/>
+                        android:visibility="gone" />
+
                     <TextView
                         android:id="@+id/industryName"
                         android:layout_width="wrap_content"
@@ -108,11 +109,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
                 android:text="商户地址"
-                android:textSize="15sp" 
-                android:layout_marginLeft="5dp"/>
+                android:textSize="15sp" />
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -127,6 +128,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal" >
 
+                    <!--
                     <TextView
                         android:id="@+id/privance"
                         android:layout_width="fill_parent"
@@ -140,13 +142,32 @@
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1" />
+                    -->
+
+                    <TextView
+                        android:id="@+id/privance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp"
+                        android:text="详细地址:"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/city"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp"
+                        android:textSize="15sp" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal" 
-                    android:visibility="gone">
+                    android:orientation="horizontal"
+                    android:visibility="gone" >
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -172,7 +193,6 @@
                     android:orientation="horizontal" >
 
                     <TextView
-                        
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingBottom="10dp"
@@ -195,11 +215,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
                 android:text="开户行信息"
-                android:textSize="15sp"
-                android:layout_marginLeft="5dp" />
+                android:textSize="15sp" />
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -251,11 +271,12 @@
                         android:paddingTop="10dp"
                         android:textSize="15sp" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="20dp" >
+                    android:layout_marginBottom="20dp"
+                    android:orientation="horizontal" >
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -269,12 +290,9 @@
                         android:id="@+id/blank_user"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        />
+                        android:layout_marginLeft="20dp" />
                 </LinearLayout>
             </LinearLayout>
-
-            
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -284,8 +302,6 @@
                 android:background="@color/white"
                 android:orientation="vertical"
                 android:visibility="gone" >
-
-                
 
                 <LinearLayout
                     android:layout_width="fill_parent"
@@ -317,8 +333,8 @@
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
                 android:text="上传证件"
-                android:textSize="15sp" 
-                android:visibility="gone"/>
+                android:textSize="15sp"
+                android:visibility="gone" />
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -337,9 +353,9 @@
                     android:orientation="vertical" >
 
                     <ImageView
-                        android:layout_marginTop="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
                         android:background="@drawable/ic_launcher" />
 
                     <TextView
@@ -363,13 +379,13 @@
                     android:layout_weight="1"
                     android:background="@color/white"
                     android:gravity="center"
-                    android:orientation="vertical" 
-                    android:visibility="gone">
+                    android:orientation="vertical"
+                    android:visibility="gone" >
 
                     <ImageView
-                        android:layout_marginTop="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
                         android:background="@drawable/ic_launcher" />
 
                     <TextView

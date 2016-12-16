@@ -11,6 +11,10 @@ import android.widget.Toast;
 import com.cspaying.shanfu.R;
 import com.cspaying.shanfu.ui.BaseActivity;
 import com.cspaying.shanfu.ui.MyApplication;
+import com.cspaying.shanfu.ui.entit.MerchantInformation;
+import com.cspaying.shanfu.ui.jsondata.InitJson;
+import com.cspaying.shanfu.ui.service.HttpUtil;
+import com.cspaying.shanfu.ui.service.HttpUtil.OnRequestListener;
 import com.cspaying.shanfu.ui.utils.LoginUtils;
 
 public class MoreActivity extends BaseActivity implements OnClickListener {
@@ -18,6 +22,7 @@ public class MoreActivity extends BaseActivity implements OnClickListener {
 	private RelativeLayout layPasSafe, layCashier, layCommodityName, layRefund,
 			layTestVersion, layCommonProblem, layMerchantData,rece_code;
 	private TextView userName;
+	private TextView merchantName;
 	private Intent intent;
 	private String version;
 	private TextView tvVersion;
@@ -32,6 +37,14 @@ public class MoreActivity extends BaseActivity implements OnClickListener {
 		setContentView(R.layout.fragment_more);
 		MyApplication.getInstance().addActivity(this);
 		initView();
+	}
+     
+	@Override
+	protected void onResume()
+	{
+		// TODO Auto-generated method stub
+		super.onResume();
+		initViewData();
 	}
 
 	private void initView() {
@@ -51,6 +64,7 @@ public class MoreActivity extends BaseActivity implements OnClickListener {
 		
 		tvVersion = (TextView) findViewById(R.id.tv_more_version);
 		userName = (TextView) findViewById(R.id.userName);  
+		merchantName = (TextView) findViewById(R.id.merchantName);  
 
 		layMerchantData.setOnClickListener(this);
 		layTestVersion.setOnClickListener(this);  
@@ -62,8 +76,6 @@ public class MoreActivity extends BaseActivity implements OnClickListener {
 		
 		login_quit = (TextView) findViewById(R.id.login_quit);
 		login_quit.setOnClickListener(this);
-
-		initViewData();
 	}
 	
 	public void initViewData(){
@@ -72,6 +84,11 @@ public class MoreActivity extends BaseActivity implements OnClickListener {
 				+"！"+  LoginUtils.getLoginName(MoreActivity.this);//.split("@")[1];
 				
 		userName.setText(user_name);
+		MerchantInformation merchantInformation = MyApplication.getInstance().getMerchantInformation();
+		if(merchantInformation != null)
+		{
+			merchantName.setText(merchantInformation.getMchName());
+		}
 		version = MyApplication.getStrVersion();
 		tvVersion.setText(version);
 	}
@@ -116,11 +133,35 @@ public class MoreActivity extends BaseActivity implements OnClickListener {
 			break;
 		case R.id.login_quit:
 			LoginUtils.setLoginFlag(MoreActivity.this, 2);
-			MyApplication.getInstance().exit();
+			PostCancel_login();
+			//MyApplication.getInstance().exit();
 			break;
 		default:
 			break;
 		}
+	}
+	
+	public void PostCancel_login(){
+		String loginInfo = LoginUtils.getLoginName(MoreActivity.this);
+		String token = LoginUtils.getLoginToken(MoreActivity.this);
+		String jsonData = InitJson.getInstance(MoreActivity.this)
+			.Cancellation_login("cs.mert.logout", "1.0",loginInfo
+			,token);
+		
+		HttpUtil.getInstance(MoreActivity.this).reques(jsonData,HttpUtil.baseUrl, 
+				new OnRequestListener() {
+			
+			@Override
+			public void onResult(int statusCode, String str) {
+				// TODO Auto-generated method stub
+				if(statusCode == 0)
+				{
+					intent = new Intent(MoreActivity.this, LoginActivity.class);
+					startActivity(intent);
+					finish();
+				}
+			}
+		});
 	}
 
 }
