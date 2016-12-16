@@ -1,0 +1,101 @@
+<resources>
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="Theme.AppCompat.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
+    <style name="main_tab_bottom">
+
+        <!-- <item name="android:textSize">@dimen/bottom_tab_font_size</item> -->
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:gravity">center_horizontal</item>
+        <!-- <item name="android:background">@drawable/home_btn_bg</item> -->
+        <!-- <item name="android:paddingTop">@dimen/bottom_tab_padding_up</item> -->
+        <item name="android:paddingBottom">2.0dip</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">2.0dip</item>
+        <item name="android:button">@null</item>
+        <item name="android:singleLine">true</item>
+        <!-- <item name="android:drawablePadding">@dimen/bottom_tab_padding_drawable</item> -->
+        <item name="android:layout_weight">1.0</item>
+    </style>
+
+    <style name="ActionBarText">
+        <item name="android:textSize">@dimen/actionbar_text_size</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    
+    
+    <style parent="@android:style/Theme.Dialog" name="CustomDialog">
+     <item name="android:windowFrame">@null</item> 
+     <item name="android:windowIsFloating">true</item>
+     <item name="android:windowContentOverlay">@null</item>
+     <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+     <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+    </style> 
+         
+    <style parent="@style/CustomDialog" name="CustomProgressDialog">
+       <item name="android:windowBackground">@android:color/transparent</item>
+       <item name="android:windowNoTitle">true</item>
+    </style>
+    
+     <style name="cricleBottomAnimation">
+        <item name="android:windowEnterAnimation">@anim/avatar_animation_right_in</item>
+        <item name="android:windowExitAnimation">@anim/avatar_animation_right_out</item>
+    </style>
+    
+      <!-- Navigation Header -->
+    <style name="NavPage">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">center_horizontal</item>
+        <!-- <item name="android:background">@drawable/nav_page</item> -->
+        <item name="android:background">@color/navpage</item>
+    </style>
+    
+    <style name="TitleText">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/BasicTextSize</item>
+        <item name="android:textColor">#ff000000</item>
+    </style>
+    
+     <style name="MMButton">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:background">@null</item>
+        <item name="android:minHeight">40dp</item>
+        <item name="android:minWidth">40dp</item>
+    </style>
+    
+    <style name="MMLineButton" parent="@style/MMButton">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    
+    <style name="MMLineActionButton" parent="@style/MMLineButton">
+        <item name="android:background">@drawable/btn_style_one</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDy">1.2</item>
+        <item name="android:shadowDx">1.2</item>
+        <item name="android:shadowRadius">1</item>
+    </style>
+
+</resources>

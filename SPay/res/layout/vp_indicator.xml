@@ -1,0 +1,47 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:mmsx="http://schemas.android.com/apk/res/com.spay"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffffff"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#8000bf5f" >
+
+        <com.cspaying.shanfu.ui.view.BounceScrollView
+            android:id="@+id/id_scrollview"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_weight="1"
+            android:focusableInTouchMode="false"
+            android:scrollbars="none" >
+
+           <com.cspaying.shanfu.shanfu.ui.view.ViewPagerIndicator
+                android:id="@+id/id_indicator"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:orientation="horizontal" />
+               
+        </com.cspaying.shanfu.ui.view.BounceScrollView>
+
+        <com.cspaying.shanfu.ui.view.RotatImageView
+            android:id="@+id/id_rotat_imageView"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="30dp"
+            android:layout_gravity="center"
+             >
+        </com.cspaying.shanfu.ui.view.RotatImageView>
+    </LinearLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/id_vp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+    </android.support.v4.view.ViewPager>
+
+</LinearLayout>

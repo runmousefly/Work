@@ -1,0 +1,40 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:orientation="vertical"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <include
+        android:id="@+id/lay_seach_title"
+        layout="@layout/seach_title_main" />
+
+    <TextView
+        android:id="@+id/tips"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lay_seach_title"
+        android:layout_margin="20dp"
+        android:text="@string/skin_toast_order_more" />
+
+    <ListView
+        android:id="@+id/refund_listview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/tips"
+        android:cacheColorHint="@color/light_grey" >
+    </ListView>
+
+    <TextView
+        android:id="@+id/tv_RefundRecord"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:text="查看退款记录"
+        android:visibility="gone" />
+
+</RelativeLayout>

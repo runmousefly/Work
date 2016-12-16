@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">QPay</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="skin_tabbar_icon_receivables">收款</string>
+    <string name="skin_tabbar_icon_flowingWate">流水</string>
+    <string name="skin_tabbar_icon_space">统计</string>
+    <string name="skin_tabbar_icon_more">更多</string>
+    <string name="skin_toast_icon_more">温馨提示:设置后,需要进行审核。待审核通过后,支付成功页面将显示该商品名称。默认显示移动支付。</string>
+    <string name="skin_toast_order_more">温馨提示:输入交易单号,为顾客申请办理退款,交易单号3天有效。申请退款成功后款项1-3个工作日将原路返回给顾客。</string>
+    <string name="skin_toast_merchant_data_more">温馨提示:用户已激活。收款资金可正常结算了。如需修改资料,请联系客服人员。</string>
+    <string name="app_company"> 深圳前海乘势科技有限公司</string>
+    <string name="app_company_picc">本次交易由中国人保财险(PICC)全额担保</string>
+    <string name="user_account_null">账号输入不能为空</string>
+    <string name="user_password_null">密码输入不能为空</string>
+    <string name="send_message_error">通讯失败</string>
+    <string name="packet_inspection_error">报文Key值检验不匹配</string>
+    <string name="login_sucess">登陆成功</string>
+    <string name="load_more">上拉刷新，查看更多</string>
+    <string name="let_refresh_data">松开刷新数据</string>
+    <string name="down_refresh_data">下拉刷新</string>
+    <string name="no_more_data">没有更多数据</string>
+    <string name="load_data_error">没有更多数据</string>
+    
+    <string name="pay_error">支付失败</string>
+    <string name="pay_sucess">支付成功</string>
+    <string name="save_code_sucess">二维码已保存到相册</string>
+    <string name="refund_fail">退款失败</string>
+    <string name="refund_sucess">退款成功</string>
+    <string name="welcome">欢迎你</string>
+    <string name="scan_code">请扫描二维码或条形码</string>
+    
+    <string name="getImfomation">获取用户信息失败</string>
+    <string name="dateState">今日流水</string>
+    <string name="payStateAll">全部</string>
+    <string name="payState">已支付</string>
+    <string name="intalling">加载中.....</string>
+    <string name="cashier_null">手机或姓名或门店输入不能为空。。</string>
+    <string name="add_cashier_sucess">添加收银员成功</string>
+    <string name="add_cashier_fail">添加收银员失败</string>
+    
+    <string name="modify_pass_sucess">修改密码成功</string>
+    <string name="modify_pass_fail">修改密码失败</string>
+    
+    <string name="pass_fail">旧密码或新密码或确认密码输入不能为空</string>
+    <string name="new_old">旧密码与新密码不一致</string>
+    
+    <string name="tongji">统计</string>
+    <string name="fenbu">交易分布</string>
+    <string name="back">返回</string>
+    <string name="tishi">温馨提示：统计当前商户收款成功金额，不包括今天收款成功数据，查看更多请登录商户管理平台网站。</string>
+    
+    
+    <!-- PayActivity -->
+	<string name="pay_by_wx">客户端签名微信支付</string>
+	<string name="pay_by_wxap">服务器端签名微信支付</string>
+	<string name="check_pay">检查微信版本是否支持支付</string>
+	<string name="input_reqkey">输入reqkey</string>
+	<string name="input_package_value">输入package value</string>
+	<string name="input_sign">输入sign</string>
+	<string name="getting_access_token">正在获取access token...</string>
+	<string name="get_access_token_succ">获取access token成功</string>
+	<string name="get_access_token_fail" formatted="false">获取access token失败，原因%s</string>
+	<string name="getting_prepayid">正在获取预支付订单...</string>
+	<string name="paying">支付中</string>
+	<string name="get_prepayid_succ">获取prepayid成功</string>
+	<string name="get_prepayid_fail" formatted="false">获取prepayid失败，原因%s</string>
+    
+	<!-- WXPayEntryActivity -->
+	<string name="pay_result_tip">这个界面用于显示第三方app通过微信支付的结果</string>
+	<string name="pay_result_callback_msg" formatted="false">微信支付结果：%s</string>
+	<string name="pay_by_wx_title">通过微信支付</string>
+
+</resources>

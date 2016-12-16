@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    >
+
+    <ImageView
+        android:id="@+id/mImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/icon_list_wechat" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/mImage"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@id/mImage"
+        android:singleLine="true"
+        android:text="408321012162838"
+        android:textSize="18sp" />
+
+    
+
+        <TextView
+         android:id="@+id/content"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginLeft="15dp"
+         android:layout_marginBottom="10dp"
+          android:layout_marginTop="3dp"
+         android:layout_toRightOf="@id/mImage"
+         android:layout_below="@+id/title"
+         android:singleLine="true"
+         android:textSize="13sp" 
+         android:textColor="@color/deep_grey"/>
+        
+        
+        <TextView
+        android:id="@+id/pay_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/mImage"
+        android:layout_marginRight="15dp"
+        android:layout_alignParentRight="true"
+        android:singleLine="true"
+        android:text="￥0.01"
+        android:textColor="@color/red"
+        android:textSize="15sp" />
+
+    
+
+        <TextView
+         android:id="@+id/pay_tyype"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginRight="15dp"
+         android:layout_marginBottom="10dp"
+         android:layout_marginTop="3dp"
+         android:layout_alignParentRight="true"
+         android:layout_below="@+id/title"
+         android:singleLine="true"
+         android:textSize="13sp" 
+         android:text="支付成功"
+         android:textColor="@color/deep_grey"/>
+
+</RelativeLayout>

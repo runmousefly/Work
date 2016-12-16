@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/mc_view"
+    >
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="2"
+        android:orientation="horizontal">
+        
+        <TextView 
+            android:id="@+id/sevent_days"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:layout_weight="1"
+            android:text="最近七天"
+            android:gravity="center"
+            android:background="@color/orange"
+            />
+        
+        <TextView 
+            android:id="@+id/a_month"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:layout_weight="1"
+            android:text="最近30天"
+            android:gravity="center"
+            android:background="@color/grass_green"
+            />
+     </LinearLayout>
+     
+     <LinearLayout
+         android:id="@+id/mc_view_line"
+         android:layout_width="match_parent"
+         android:layout_height="200dp"
+         android:orientation="horizontal"
+         android:background="@color/mc_view">
+         
+     </LinearLayout>
+    
+    
+   
+    
+
+</LinearLayout>

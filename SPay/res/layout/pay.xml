@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    style="@style/NavPage">
+    
+    <TextView
+        style="@style/TitleText"
+        android:text="@string/pay_by_wx_title"/>
+    
+    <Button
+        android:id="@+id/appay_btn"
+        style="@style/MMLineActionButton"
+	    android:layout_margin="10dp"
+        android:text="@string/pay_by_wxap"/>
+    <Button
+        android:id="@+id/check_pay_btn"
+        style="@style/MMLineActionButton"
+	    android:layout_margin="10dp"
+        android:text="@string/check_pay"/>
+
+</LinearLayout>

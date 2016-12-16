@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f0f0f0"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="170dp"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="30dp"
+        android:background="@drawable/mengban">
+
+        <RelativeLayout 
+            android:layout_width="fill_parent" 
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            
+            >
+            <TextView 
+                android:id="@+id/tv_todayFlowingWater"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="今日流水"
+                android:textColor="@android:color/white"
+                android:textSize="15sp"
+                android:drawableRight="@drawable/icon_arrow_triangle"
+                />
+            <TextView 
+                android:id="@+id/tv_query"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/icon_search_search"
+                android:layout_alignParentRight="true"
+                
+                />
+        </RelativeLayout>
+        
+        <TextView 
+            android:id="@+id/title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="￥0.00"
+            android:textSize="30sp"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@android:color/white"
+            android:gravity="center_horizontal"
+            />
+        <TextView 
+            android:id="@+id/have_finish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="已支付0笔"
+            android:textSize="15sp"
+            android:textColor="@android:color/white"
+            android:gravity="center_horizontal"
+            />
+        <TextView 
+                android:id="@+id/had_pay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="全部"
+                android:drawableRight="@drawable/icon_arrow_triangle"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:layout_gravity="right"
+                android:layout_marginTop="10dp"
+                />
+    </LinearLayout>
+   
+    
+     
+    <include layout="@layout/activity_statistics_top_tab"
+              android:id="@+id/statistics_top_tab_re"
+             />
+    
+    
+
+    <android.support.v4.view.ViewPager
+      android:id="@+id/id_page_vp"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:background="@color/mid_grey"
+       >
+    </android.support.v4.view.ViewPager>
+
+</LinearLayout>

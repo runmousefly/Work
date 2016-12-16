@@ -1,0 +1,102 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <Button 
+        android:id="@+id/shanghu_xinxi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="shanghu_xinxi"   
+        android:padding="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"     
+        />
+    
+    <Button 
+        android:id="@+id/jiayi_liushuo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="jiayi_liushuo"   
+        android:padding="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"     
+        />
+    
+    <Button 
+        android:id="@+id/tuikuang_shengqing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="tuikuang_shengqing"   
+        android:padding="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"     
+        />
+    
+    <Button 
+        android:id="@+id/add_cashier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="add_cashier"   
+        android:padding="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"     
+        />
+    
+    <Button 
+        android:id="@+id/qurey_cashier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="qurey_cashier"   
+        android:padding="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"     
+        />
+    
+    <Button 
+        android:id="@+id/update_cashier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="update_cashier"   
+        android:padding="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"     
+        />
+    
+    <Button 
+        android:id="@+id/delete_cashier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="delete_cashier"   
+        android:padding="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"     
+        />
+    
+    <Button 
+        android:id="@+id/cancellation_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="cancellation_login"   
+        android:padding="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"     
+        />
+    
+    <Button 
+        android:id="@+id/modify_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="modify_password"   
+        android:padding="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"     
+        />
+    
+    
+
+   
+
+</LinearLayout>

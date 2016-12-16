@@ -1,0 +1,33 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    
+     <!-- profile ui margins -->
+    <dimen name="profile_cirimg_left">46dp</dimen>
+    <dimen name="profile_view_left">18dp</dimen>
+    <dimen name="profile_view_right">16dp</dimen>
+    <dimen name="actionbar_text_size">22sp</dimen>
+       <!-- text size -->
+    <dimen name="text_normal_size">18sp</dimen>
+    <dimen name="text_title_size">22sp</dimen>
+    <dimen name="drawerTextSize">16.0dip</dimen>
+
+    <!-- actionbar text padding -->
+    <dimen name="actionbar_text_padding_left">10dp</dimen>
+    <dimen name="actionbar_text_padding_right">10dp</dimen>
+    
+    
+    <dimen name="LargeTextSize">16dp</dimen>
+    <dimen name="BasicTextSize">15dp</dimen>
+    <dimen name="TitleTextSize">18dp</dimen>
+    <dimen name="SmallTextSize">14dp</dimen>
+    <dimen name="SmallerTextSize">13dp</dimen>
+    <dimen name="LargestTextSize">30dp</dimen>
+    <dimen name="ChattingTextSize">16dp</dimen>
+    <dimen name="ChattingContentMinHeight">49dp</dimen>
+    <dimen name="PreferenceItemHeight">42dp</dimen>
+    <dimen name="ConversationItemHeight">58dp</dimen>
+    <dimen name="LargeAvatarSize">56dp</dimen>
+</resources>

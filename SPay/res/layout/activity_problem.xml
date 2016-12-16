@@ -1,0 +1,44 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <include
+        android:id="@+id/lay_title"
+        layout="@layout/title_main" />
+    
+    <ListView 
+        android:id="@+id/problem_list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="7dp"
+        android:paddingBottom="7dp"
+        android:dividerHeight="1dp"
+        android:divider="@color/mid_grey"
+        android:layout_below="@+id/lay_title"
+        >
+        
+    </ListView>
+    
+    <TextView 
+        android:id="@+id/question"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:layout_below="@+id/problem_list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/mid_grey"
+        android:text="还有疑问，请拨打客户热线  400-658-8198"
+        android:paddingTop="15dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:textColor="@color/deep_grey"
+        />
+
+    
+
+</RelativeLayout>

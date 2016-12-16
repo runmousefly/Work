@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/whitesmoke"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btn_week"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/orange"
+            android:textColor="@color/white"
+            android:text="最近一周" />
+
+        <Button
+            android:id="@+id/btn_month"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/grass_green"
+            android:textColor="@color/white"
+            android:text="最近一月" />
+    </LinearLayout>
+    <!--
+ <View />
+ <LinearLayout
+         android:id="@+id/mc_view_line"
+         android:layout_width="match_parent"
+         android:layout_height="200dp"
+         android:orientation="horizontal"
+         android:background="@color/mc_view"
+         >
+     </LinearLayout>
+    -->
+
+    <com.cspaying.shanfu.ui.view.XListView
+        android:id="@+id/techan_xListView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:cacheColorHint="@color/light_grey" >
+    </com.cspaying.shanfu.ui.view.XListView>
+
+</LinearLayout>

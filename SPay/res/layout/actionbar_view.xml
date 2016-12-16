@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/profile_cirimg_left"
+    android:layout_gravity="center_vertical"
+    android:background="#0499f8" >
+
+    <ImageButton
+        android:id="@+id/actionbar_left_btn"
+        android:layout_width="59dp"
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:background="@null"
+        android:paddingLeft="5dp" />
+
+    <TextView
+        android:id="@+id/actionbar_left_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:background="@null"
+        android:paddingBottom="5dp"
+        android:paddingLeft="5dp"
+        android:paddingTop="5dp"
+        android:textColor="@color/white"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/actionbar_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_normal_size" />
+
+    <ImageButton
+        android:id="@+id/actionbar_right_btn"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/actionbar_text_padding_right"
+        android:background="@null"
+        android:paddingBottom="1dp"
+        android:paddingRight="1dp"
+        android:paddingTop="1dp"
+        android:visibility="gone" />
+
+    <ImageButton
+        android:id="@+id/actionbar_right_second_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/actionbar_text_padding_right"
+        android:layout_toLeftOf="@id/actionbar_right_btn"
+        android:background="@null"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/actionbar_right_btnText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/actionbar_text_padding_right"
+        android:background="@null"
+        android:paddingBottom="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="5dp"
+        android:textColor="@color/white"
+        android:visibility="gone" />
+
+</RelativeLayout>

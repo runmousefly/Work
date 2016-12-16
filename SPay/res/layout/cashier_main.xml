@@ -1,0 +1,228 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <include
+        android:id="@+id/lay_title"
+        layout="@layout/title_main" />
+
+    <LinearLayout
+        android:id="@+id/lay_reInfo"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lay_title"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/white"
+        android:orientation="vertical" >
+
+        <EditText
+            android:id="@+id/et_usrCashierPhone"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lay_title"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:hint="手机号" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lay_pas"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lay_reInfo"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/white"
+        android:orientation="vertical" >
+
+        <EditText
+            android:id="@+id/et_usrCashierName"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:hint="姓名" />
+
+        <EditText
+            android:id="@+id/et_usrCashierShop"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:hint="门店" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lay_CashierManager"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lay_pas"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/white"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/lay_refund"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:padding="10dp" >
+
+            <CheckBox
+                android:id="@+id/cb_refund"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true" />
+
+            <TextView
+                android:id="@+id/tv_refund_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/cb_refund"
+                android:text="未开启"
+                android:textColor="@android:color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/cb_refund"
+                android:layout_alignBottom="@+id/cb_refund"
+                android:layout_alignParentLeft="true"
+                android:gravity="center"
+                android:text="退款权限"
+                android:textColor="@android:color/black"
+                android:textSize="15sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/lay_flowing_water"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:padding="10dp" >
+
+            <CheckBox
+                android:id="@+id/cb_flowing_water"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true" />
+
+            <TextView
+                android:id="@+id/tv_flowing_water_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/cb_flowing_water"
+                android:text="未开启"
+                android:textColor="@android:color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/cb_flowing_water"
+                android:layout_alignBottom="@+id/cb_flowing_water"
+                android:layout_alignParentLeft="true"
+                android:gravity="center"
+                android:text="查看流水权限"
+                android:textColor="@android:color/black"
+                android:textSize="15sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/lay_open_and_close_manager"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:padding="10dp" >
+
+            <CheckBox
+                android:id="@+id/cb_open_and_close_manager"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true" />
+
+            <TextView
+                android:id="@+id/tv_open_and_close_manager_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/cb_open_and_close_manager"
+                android:text="未开启"
+                android:textColor="@android:color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/cb_open_and_close_manager"
+                android:layout_alignBottom="@+id/cb_open_and_close_manager"
+                android:layout_alignParentLeft="true"
+                android:gravity="center"
+                android:text="开启/冻结权限"
+                android:textColor="@android:color/black"
+                android:textSize="15sp" />
+        </RelativeLayout>
+        
+        <RelativeLayout
+            android:id="@+id/lay_open_and_close_manager"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:padding="10dp" >
+
+            <CheckBox
+                android:id="@+id/cb_tongji"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true" />
+
+            <TextView
+                android:id="@+id/cb_tongji_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/cb_tongji"
+                android:text="未开启"
+                android:textColor="@android:color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/cb_tongji"
+                android:layout_alignBottom="@+id/cb_tongji"
+                android:layout_alignParentLeft="true"
+                android:gravity="center"
+                android:text="开启/冻结"
+                android:textColor="@android:color/black"
+                android:textSize="15sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_commit"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lay_CashierManager"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="26dp"
+        android:background="@drawable/bottom_reg"
+        android:padding="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="保存"
+        android:textColor="@android:color/white" />
+
+</RelativeLayout>

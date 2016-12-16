@@ -1,0 +1,77 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <include
+        android:id="@+id/lay_title"
+        layout="@layout/title_main" />
+
+    <LinearLayout
+        android:id="@+id/lay_reInfo"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lay_title"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/white"
+        android:orientation="vertical" >
+
+        <EditText
+            android:id="@+id/et_usrPasSafeOldPas"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lay_title"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:hint="旧密码" />
+   
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lay_pas"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lay_reInfo"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/white"
+        android:orientation="vertical" >
+
+        <EditText
+            android:id="@+id/et_usrRegInfoPas"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:hint="新密码/长度至少8位" />
+
+        <EditText
+            android:id="@+id/et_usrRegInfoPasOk"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:hint="确认密码" />
+
+   
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btn_commit"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lay_pas"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="30dp"
+        android:padding="10dp"
+        android:background="@drawable/bottom_reg"
+        android:text="提交"
+        android:textColor="@android:color/white" />
+
+</RelativeLayout>

@@ -1,0 +1,29 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <include
+        android:id="@+id/lay_title"
+        layout="@layout/title_main" />
+    
+    <ListView 
+        android:id="@+id/cashier_list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="7dp"
+        android:paddingBottom="7dp"
+        android:dividerHeight="1dp"
+        android:divider="@color/mid_grey"
+        android:layout_below="@+id/lay_title"
+        >
+        
+    </ListView>
+
+    
+
+</RelativeLayout>

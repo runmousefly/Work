@@ -1,0 +1,165 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${relativePackage}.${activityClass}" >
+
+
+    <FrameLayout
+        android:id="@+id/frame_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/frameMenu"
+        android:layout_alignParentTop="true" >
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/light_grey"
+            android:orientation="horizontal" >
+
+            <!-- 收款 -->
+
+            <FrameLayout
+                android:id="@+id/layout_Receivables"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_weight="1" >
+
+                <ImageView
+                    android:id="@+id/image_at"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|center"
+                    android:src="@drawable/skin_tabbar_icon_auth_select" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:text="@string/skin_tabbar_icon_receivables"
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp" />
+            </FrameLayout>
+
+            <!-- 流水 -->
+
+            <FrameLayout
+                android:id="@+id/layout_FlowingWater"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_weight="1" >
+
+                <ImageView
+                    android:id="@+id/image_auth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|center"
+                    android:src="@drawable/skin_tabbar_icon_at_select" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:text="@string/skin_tabbar_icon_flowingWate"
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp" />
+            </FrameLayout>
+
+            <!-- 留白 -->
+
+            <FrameLayout
+                  android:visibility="gone"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" >
+            </FrameLayout>
+
+            <!-- 统计 -->
+
+            <FrameLayout
+                android:id="@+id/layout_Statistics"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_weight="1" >
+
+                <ImageView
+                    android:id="@+id/image_space"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|center"
+                    android:src="@drawable/skin_tabbar_icon_space_select" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:text="@string/skin_tabbar_icon_space"
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp" />
+            </FrameLayout>
+
+            <!-- 更多 -->
+
+            <FrameLayout
+                android:id="@+id/layout_more"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_weight="1" >
+
+                <ImageView
+                    android:id="@+id/image_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|center"
+                    android:src="@drawable/skin_tabbar_icon_more_select" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:text="@string/skin_tabbar_icon_more"
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@android:color/black" >
+        </LinearLayout>
+    </FrameLayout>
+
+    <!-- 中间按钮背景 -->
+
+    <ImageView
+        android:visibility="gone"
+        android:id="@+id/toggle_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignTop="@+id/frameMenu"
+        android:layout_centerInParent="true"
+        android:src="@drawable/skin_tabbar_btn" />
+
+    <!-- 中间按钮 -->
+
+    <ImageView
+          android:visibility="gone"
+        android:id="@+id/plus_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignTop="@+id/frameMenu"
+        android:layout_centerInParent="true"
+        android:src="@drawable/skin_tabbar_icon_select" />
+
+</RelativeLayout>
