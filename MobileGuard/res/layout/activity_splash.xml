@@ -25,5 +25,14 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/tv_splash_version"
         />
+    
+    <TextView
+        android:id="@+id/tv_download_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+       android:layout_alignParentBottom="true"
+       android:layout_marginBottom="10dp"
+        />
 
 </RelativeLayout>

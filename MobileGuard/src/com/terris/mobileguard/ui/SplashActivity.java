@@ -1,5 +1,6 @@
 package com.terris.mobileguard.ui;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OptionalDataException;
@@ -11,6 +12,11 @@ import java.util.logging.MemoryHandler;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.lidroid.xutils.HttpUtils;
+import com.lidroid.xutils.exception.HttpException;
+import com.lidroid.xutils.http.HttpHandler;
+import com.lidroid.xutils.http.ResponseInfo;
+import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.terris.mobileguard.R;
 import com.terris.mobileguard.utils.StreamUtils;
 import com.terris.mobileguard.utils.UIUtils;
@@ -18,6 +24,7 @@ import com.terris.mobileguard.utils.UIUtils;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -26,11 +33,14 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
 import android.content.res.Resources.NotFoundException;
 import android.graphics.Matrix;
+import android.net.Uri;
 import android.opengl.Visibility;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.os.SystemClock;
+import android.os.storage.StorageManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
@@ -46,6 +56,7 @@ public class SplashActivity extends Activity
 	
 	private TextView tv_splash_version = null;
 	private ProgressBar pb_splash_progress = null;
+	private TextView tv_download_progress = null;
 	
 	private final static String TAG = "SplashActivity";
 	
@@ -68,10 +79,26 @@ public class SplashActivity extends Activity
 					int oldVersion = msg.getData().getInt(KEY_OLD_VERSION);
 					int newVersion = msg.getData().getInt(KEY_NEW_VERSION);
 					String appDesc = msg.getData().getString(KEY_APP_DESC);
-					String downloadUrl = msg.getData().getString(KEY_UPGRADE_URL);
+					final String downloadUrl = msg.getData().getString(KEY_UPGRADE_URL);
 					AlertDialog.Builder builder = new AlertDialog.Builder(SplashActivity.this);
 					builder.setTitle(getResources().getString(R.string.title_upgrade_dialog));
 					builder.setMessage("当前版本:"+oldVersion+",可用新版本:"+newVersion+"\n新版本描述:"+appDesc);
+					//builder.setCancelable(false);//只能点击按钮取消，返回键无法取消
+					builder.setOnCancelListener(new DialogInterface.OnCancelListener()
+					{
+						
+						@Override
+						public void onCancel(DialogInterface dialog)
+						{
+							// TODO Auto-generated method stub
+							Message msg = new Message();
+							msg.what = MSG_LOAD_MAINMENU;
+							Bundle bundle = new Bundle();
+							bundle.putInt(KEY_ERRCODE, 0);
+							msg.setData(bundle);
+							mHandler.sendMessage(msg);
+						}
+					});
 					builder.setNegativeButton("下次再说",new DialogInterface.OnClickListener()
 					{
 						
@@ -92,7 +119,7 @@ public class SplashActivity extends Activity
 						public void onClick(DialogInterface dialog, int which)
 						{
 							// TODO Auto-generated method stub
-							
+							upgradeApp(downloadUrl);
 						}
 					});
 					builder.show();
@@ -125,6 +152,8 @@ public class SplashActivity extends Activity
 		tv_splash_version = (TextView)findViewById(R.id.tv_splash_version);
 		pb_splash_progress = (ProgressBar)findViewById(R.id.pb_splash_progress);
 		pb_splash_progress.setVisibility(View.VISIBLE);
+		tv_download_progress = (TextView)findViewById(R.id.tv_download_progress);
+		tv_download_progress.setVisibility(View.INVISIBLE);
 	}
 	
 	private void updateView()
@@ -251,4 +280,68 @@ public class SplashActivity extends Activity
 		}).start();
 	}
 	
+	
+	private void upgradeApp(String url)
+	{
+		final String downloadPath = Environment.getExternalStorageDirectory().getAbsolutePath()+"/mobileguard_temp.apk";
+		HttpUtils httpUtils = new HttpUtils();
+		HttpHandler handler = httpUtils.download(url,downloadPath, new RequestCallBack<File>()
+		{
+			
+			@Override
+			public void onSuccess(ResponseInfo<File> responseInfo)
+			{
+				// TODO Auto-generated megetApplicationContext()
+				installApk(downloadPath);
+			}
+			
+			@Override
+			public void onFailure(HttpException httpException, String arg1)
+			{
+				// TODO Auto-generated method stub
+				UIUtils.showToast(SplashActivity.this, "更新失败，错误码:"+1005);
+				Message msg = new Message();
+				msg.what = MSG_LOAD_MAINMENU;
+				Bundle bundle = new Bundle();
+				bundle.putInt(KEY_ERRCODE, 1005);
+				msg.setData(bundle);
+				mHandler.sendMessage(msg);
+				finish();
+			}
+
+			@Override
+			public void onLoading(long total, long current, boolean isUploading)
+			{
+				// TODO Auto-generated method stub
+				Log.i(TAG,"download,progress:"+String.format("%.3f", current*1.0/total));
+				tv_download_progress.setVisibility(View.VISIBLE);
+				tv_download_progress.setText(current+"/"+total);
+			}
+		});
+	}
+	
+	public boolean installApk(String strFilePath)
+	{
+		File file = new File(strFilePath);
+		if (file.exists())
+		{
+			Intent intent = new Intent(Intent.ACTION_VIEW);
+			intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			intent.setAction("android.intent.action.VIEW");
+			intent.addCategory("android.intent.category.DEFAULT");
+			intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
+			startActivity(intent);
+			finish();
+			return true;
+		}
+		// install_fail_file_not_exist
+		return false;
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data)
+	{
+		// TODO Auto-generated method stub
+		super.onActivityResult(requestCode, resultCode, data);
+	}
 }
