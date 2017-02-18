@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">手机卫士</string>
+    <string name="action_settings">设置</string>
+    <string name="version">版本号:</string>
+    <string name="app_info_url">http://192.168.1.46:8080/mobilesafe/info.json</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_upgrade_dialog">新版本更新</string>
+	<string name="cancel_upgrade_dialog">下次更新</string>
+	<string name="ok_upgrade_dialog">立刻更新</string>
+</resources>
