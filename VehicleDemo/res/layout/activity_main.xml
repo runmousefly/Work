@@ -1,0 +1,110 @@
+ <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    	xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/mcuTest"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:gravity="center_horizontal"
+                android:text="MCU General Test" />
+
+            <Button
+                android:id="@+id/radioTest"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:gravity="center_horizontal"
+                android:text="MCU Radio Test" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/obdTest"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:gravity="center_horizontal"
+                android:text="OBD Test" />
+
+            <Button
+                android:id="@+id/canTest"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:gravity="center_horizontal"
+                android:text="CAN Test" />
+        </LinearLayout>
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/dvrTest"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:gravity="center_horizontal"
+                android:text="DVR Test" />
+            
+            <Button
+                android:id="@+id/tpmsTest"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:gravity="center_horizontal"
+                android:text="TPMS Test" />
+
+        </LinearLayout>
+
+       <TextView
+        android:id="@+id/LogText"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:background="#558877"
+        android:fadeScrollbars="false"
+        android:scrollbars="vertical"
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#ffffff" 
+        android:visibility="invisible" />
+        
+    </LinearLayout>
+   <!-- 
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentTop="true"
+    android:layout_marginBottom="5dp"
+    android:layout_marginTop="5dp"
+    android:scrollbars="none" >
+
+   
+
+</ScrollView> -->

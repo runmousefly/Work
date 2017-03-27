@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+*    Copyright (c) 2014 Qualcomm Technologies, Inc. All Rights Reserved.
+*    Qualcomm Technologies Proprietary and Confidential.
+*
+*/
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:id="@+id/drivingStreamUiScroll"
+android:layout_height="fill_parent"
+android:layout_weight="1.0">
+
+    <GridLayout
+    android:id="@+id/drivingStreamHomeUI"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:columnCount="4"
+    android:rowCount="1"
+    android:orientation="horizontal" >
+    
+        <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:columnCount="1"
+        android:rowCount="18"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:orientation="vertical" >
+            <TextView
+            android:layout_width="200px"
+            android:layout_height="60px"
+            android:text="@string/BatteryVoltage"/>
+            <TextView
+            android:layout_width="200px"
+            android:layout_height="60px"
+            android:text="@string/EngineSpeed"/>
+            <TextView
+            android:layout_width="200px"
+            android:layout_height="60px"
+            android:text="@string/VehicleSpeed"/>
+            <TextView
+            android:layout_width="200px"
+            android:layout_height="60px"
+            android:text="@string/ThrotilePosn"/>
+            <TextView
+            android:layout_width="200px"
+            android:layout_height="60px"
+            android:text="@string/EngineLoad"/>
+            <TextView
+            android:layout_width="200px"
+            android:layout_height="60px"
+            android:text="@string/CoolantTemp"/>
+            <TextView
+            android:layout_width="200px"
+            android:layout_height="60px"
+            android:text="@string/InstantFuelConsume"/>
+            <TextView
+            android:layout_width="200px"
+            android:layout_height="60px"
+            android:text="@string/AVGFuelConsume"/>
+            <TextView
+            android:layout_width="200px"
+            android:layout_height="60px"
+            android:text="@string/CurTravelOdometer"/>
+            <TextView
+            android:layout_width="200px"
+            android:layout_height="60px"
+            android:text="@string/TotalOdometer"/>
+            <TextView
+            android:layout_width="200px"
+            android:layout_height="60px"
+            android:text="@string/CurTravelFuelConsume"/>
+            <TextView
+            android:layout_width="200px"
+            android:layout_height="60px"
+            android:text="@string/TotalFuelConsume"/>
+            <TextView
+            android:layout_width="200px"
+            android:layout_height="60px"
+            android:text="@string/MalfunctionIndicatorNo"/>
+            <TextView
+            android:layout_width="200px"
+            android:layout_height="60px"
+            android:text="@string/CurTravelQuickSpeedUpTimes"/>
+            <TextView
+            android:layout_width="200px"
+            android:layout_height="60px"
+            android:text="@string/CurTravelQuickSpeedDownTimes"/>
+            <Button
+            android:id="@+id/OpenStream"
+            android:layout_width="200px"
+            android:layout_height="60px"
+            android:text="@string/open_stream" />
+            <Button
+            android:id="@+id/Restart"
+            android:layout_width="200px"
+            android:layout_height="60px"
+            android:text="@string/hot_restart" />
+          
+        </GridLayout>
+        <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:columnCount="1"
+        android:rowCount="17"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:orientation="vertical" >
+            <EditText
+            android:id="@+id/BatteryVoltage"
+            android:layout_width="120px"
+            android:layout_height="60px"
+            android:editable="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="right|center_vertical"/>
+            <EditText
+            android:id="@+id/EngineSpeed"
+            android:layout_width="120px"
+            android:layout_height="60px"
+            android:editable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="right|center_vertical"/>
+            <EditText
+            android:id="@+id/VehicleSpeed"
+            android:layout_width="120px"
+            android:layout_height="60px"
+            android:editable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="right|center_vertical"/>
+            <EditText
+            android:id="@+id/ThrotilePosn"
+            android:layout_width="120px"
+            android:layout_height="60px"
+            android:editable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="right|center_vertical"/>
+            <EditText
+            android:id="@+id/EngineLoad"
+            android:layout_width="120px"
+            android:layout_height="60px"
+            android:editable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="right|center_vertical"/>
+            <EditText
+            android:id="@+id/CoolantTemp"
+            android:layout_width="120px"
+            android:layout_height="60px"
+            android:editable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="right|center_vertical"/>
+            <EditText
+            android:id="@+id/InstantFuelConsume"
+            android:layout_width="120px"
+            android:layout_height="60px"
+            android:editable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="right|center_vertical"/>
+            <EditText
+            android:id="@+id/AVGFuelConsume"
+            android:layout_width="120px"
+            android:layout_height="60px"
+            android:editable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="right|center_vertical"/>
+            <EditText
+            android:id="@+id/CurTravelOdometer"
+            android:layout_width="120px"
+            android:layout_height="60px"
+            android:editable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="right|center_vertical"/>
+            <EditText
+            android:id="@+id/TotalOdometer"
+            android:layout_width="120px"
+            android:layout_height="60px"
+            android:editable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="right|center_vertical"/>
+            <EditText
+            android:id="@+id/CurTravelFuelConsume"
+            android:layout_width="120px"
+            android:layout_height="60px"
+            android:editable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="right|center_vertical"/>
+            <EditText
+            android:id="@+id/TotallFuelConsume"
+            android:layout_width="120px"
+            android:layout_height="60px"
+            android:editable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="right|center_vertical"/>
+            <EditText
+            android:id="@+id/MalfunctionIndicatorNo"
+            android:layout_width="120px"
+            android:layout_height="60px"
+            android:editable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="right|center_vertical"/>
+            <EditText
+            android:id="@+id/CurTravelSpeedUpTimes"
+            android:layout_width="120px"
+            android:layout_height="60px"
+            android:editable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="right|center_vertical"/>
+            <EditText
+            android:id="@+id/CurTravelSpeedDownTimes"
+            android:layout_width="120px"
+            android:layout_height="60px"
+            android:editable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="right|center_vertical"/>
+            <Button
+            android:id="@+id/CloseStream"
+            android:layout_width="200px"
+            android:layout_height="60px"
+            android:focusableInTouchMode="false"
+            android:text="@string/close_stream" />
+            <Button
+            android:id="@+id/Sleep"
+            android:layout_width="200px"
+            android:layout_height="60px"
+            android:focusableInTouchMode="false"
+            android:text="@string/sleep" />
+        </GridLayout>
+        
+        <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50px"
+        android:columnCount="1"
+        android:rowCount="20"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:orientation="vertical" >
+            <TextView
+            android:layout_width="200px"
+            android:layout_height="60px"
+            android:text="@string/TotalIgnitionTimes"/>
+            <TextView
+            android:layout_width="200px"
+            android:layout_height="60px"
+            android:text="@string/TotalDriveTime"/>
+            <TextView
+            android:layout_width="200px"
+            android:layout_height="60px"
+            android:text="@string/TotalIdleTime"/>
+            <TextView
+            android:layout_width="200px"
+            android:layout_height="60px"
+            android:text="@string/AVGWarmUpTime"/>
+            <TextView
+            android:layout_width="200px"
+            android:layout_height="60px"
+            android:text="@string/AVGVehicleSpeed"/>
+            <TextView
+            android:layout_width="200px"
+            android:layout_height="60px"
+            android:text="@string/HistoryHigestVehicleSpeed"/>
+            <TextView
+            android:layout_width="200px"
+            android:layout_height="60px"
+            android:text="@string/HistoryHigestEngineSpeed"/>
+            <TextView
+            android:layout_width="200px"
+            android:layout_height="60px"
+            android:text="@string/TotalTravelQuickSpeedUpTimes"/>
+            <TextView
+            android:layout_width="200px"
+            android:layout_height="60px"
+            android:text="@string/TotalTravelQuickSpeedDownTimes"/>
+            <TextView
+            android:layout_width="200px"
+            android:layout_height="60px"
+            android:text="@string/LeftFuel"/>
+            <TextView
+            android:layout_width="200px"
+            android:layout_height="60px"
+            android:text="@string/AddedOdoInfo"/>
+            <TextView
+            android:layout_width="200px"
+            android:layout_height="60px"
+            android:text="@string/CurDriveTime"/>
+            <TextView
+            android:layout_width="200px"
+            android:layout_height="60px"
+            android:text="@string/CurIdleTime"/>
+            
+            <Button
+            android:id="@+id/CalibrageOdometer"
+            android:layout_width="200px"
+            android:layout_height="60px"
+            android:text="@string/calibrate_odometer" />
+            
+           <Button
+            android:id="@+id/ReqHabitData"
+            android:layout_width="200px"
+            android:layout_height="60px"
+            android:text="@string/req_habit" />
+           
+           <Button
+            android:id="@+id/ReqLeftFuel"
+            android:layout_width="200px"
+            android:layout_height="60px"
+            android:text="@string/req_left_fuel" />
+               
+           <Button
+            android:id="@+id/ReqOdoInfo"
+            android:layout_width="200px"
+            android:layout_height="60px"
+            android:text="@string/odometer_info" />
+           
+           <Button
+            android:id="@+id/ReqTimeInfo"
+            android:layout_width="200px"
+            android:layout_height="60px"
+            android:text="@string/time_info" />
+           
+           <Button
+            android:id="@+id/MinusOdometer"
+            android:layout_width="200px"
+            android:layout_height="60px"
+            android:text="@string/minus_odometer" />
+           
+           <Button
+            android:id="@+id/ClearData"
+            android:layout_width="200px"
+            android:layout_height="60px"
+            android:text="@string/clear_data" />
+           
+        </GridLayout>
+        
+        <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:columnCount="1"
+        android:rowCount="14"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:orientation="vertical" >
+            <EditText
+            android:id="@+id/TotalIgnitionTimes"
+            android:layout_width="120px"
+            android:layout_height="60px"
+            android:editable="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="right|center_vertical"/>
+            <EditText
+            android:id="@+id/TotalDriveTime"
+            android:layout_width="120px"
+            android:layout_height="60px"
+            android:editable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="right|center_vertical"/>
+            <EditText
+            android:id="@+id/TotalIdleTime"
+            android:layout_width="120px"
+            android:layout_height="60px"
+            android:editable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="right|center_vertical"/>
+            <EditText
+            android:id="@+id/AvgWarmUpTime"
+            android:layout_width="120px"
+            android:layout_height="60px"
+            android:editable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="right|center_vertical"/>
+            <EditText
+            android:id="@+id/AvgVehicleSpeed"
+            android:layout_width="120px"
+            android:layout_height="60px"
+            android:editable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="right|center_vertical"/>
+            <EditText
+            android:id="@+id/HistoryHigestVehicleSpeed"
+            android:layout_width="120px"
+            android:layout_height="60px"
+            android:editable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="right|center_vertical"/>
+            <EditText
+            android:id="@+id/HistoryHigestEngineSpeed"
+            android:layout_width="120px"
+            android:layout_height="60px"
+            android:editable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="right|center_vertical"/>
+            <EditText
+            android:id="@+id/TotalSpeedUpTimes"
+            android:layout_width="120px"
+            android:layout_height="60px"
+            android:editable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="right|center_vertical"/>
+            <EditText
+            android:id="@+id/TotalSpeedDownTimes"
+            android:layout_width="120px"
+            android:layout_height="60px"
+            android:editable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="right|center_vertical"/>
+            <EditText
+            android:id="@+id/LeftFuel"
+            android:layout_width="120px"
+            android:layout_height="60px"
+            android:editable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="right|center_vertical"/>
+            
+            <EditText
+            android:id="@+id/AddedOdoInfo"
+            android:layout_width="120px"
+            android:layout_height="60px"
+            android:editable="false"
+            android:gravity="right|center_vertical"/>
+            
+            <EditText
+            android:id="@+id/CurDriveTime"
+            android:layout_width="120px"
+            android:layout_height="60px"
+            android:editable="false"
+            android:gravity="right|center_vertical"/>
+            
+            <EditText
+            android:id="@+id/CurIdleTime"
+            android:layout_width="120px"
+            android:layout_height="60px"
+            android:editable="false"
+            android:gravity="right|center_vertical"/>
+            
+            <EditText
+            android:id="@+id/CalibrateOdometerValue"
+            android:layout_width="120px"
+            android:layout_height="60px"
+            android:editable="true"
+            android:numeric="integer"
+            android:gravity="right|center_vertical"/>
+            
+            
+            
+            
+            
+        </GridLayout>
+    </GridLayout>
+</ScrollView>

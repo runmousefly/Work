@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="list_item_normal">#00000000</color>
+    <color name="list_item_selected">#22000000</color>
+    <color name="list_item_pressed">#22000000</color>
+    <color name="list_item_disable">#0000FFFF</color>
+    <color name="list_item_focused">#22000000</color>
+</resources>

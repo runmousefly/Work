@@ -1,17 +1,38 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.terris.mobileguard.ui.HomeActivity" >
+    tools:context="com.terris.mobileguard.ui.HomeActivity" 
+    android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <TextView 
+        android:id="@+id/tv_home_title"
+        android:layout_width="match_parent"
+        android:layout_height="60dip"
+        android:textSize="30sp"
+        android:background="#8866ff00"
+        android:text="主界面"
+        android:gravity="center_horizontal|center_vertical"/>
+    
+    <com.terris.mobileguard.view.FocusedTextView
+        android:id="@+id/tv_home_notice"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="MainMenu"
-         />
+        android:text="文本滚动测试，获取焦点才会滚动，自定义始终获取到焦点!!!!!!!!!!!!!!!!!"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:focusableInTouchMode="true"/>
 
-</RelativeLayout>
+    <GridView
+        android:id="@+id/gv_home"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:numColumns="3"
+        android:horizontalSpacing="10dip"
+        android:verticalSpacing="30dip"
+        android:listSelector="@drawable/list_selector" >
+    </GridView>
+
+</LinearLayout>

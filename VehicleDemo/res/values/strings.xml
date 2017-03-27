@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">VehicleDemo</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_main">VehicleDemo</string>
+    <string name="open_stream">ATRON</string>
+    <string name="close_stream">ATROFF</string>
+    <string name="req_habit">ReqHabitData</string>
+    <string name="req_left_fuel">ReqLeftFuel</string>
+    <string name="hot_restart">Restart</string>
+    <string name="sleep">Sleep</string>
+    <string name="AutoStart">AutoStart</string>
+    <string name="ManualStart">ManualStart</string>
+    <string name="calibrate_odometer">Cali_Odo</string>
+    <string name="minus_odometer">Minus_Odo</string>
+    <string name="clear_data">Clear Data</string>
+    <string name="AddedOdoInfo">Added Odometer</string>
+    <string name="odometer_info">ReqOdometerInfo</string>
+    <string name="time_info">ReqTimeInfo</string>
+    <string name="CurDriveTime">Cur Drive Time(s)</string>
+    <string name="CurIdleTime">Cur Idle Time(s)</string>
+    <string name="Status">Status</string>
+    <string name="Overview">CarOverview</string>
+    <string name="Maintenance">Maintenance</string>
+    <string name="Parking">Parking</string>
+    <string name="Climate">Climate</string>
+    <string name="Transmission">Transmission</string>
+    <string name="Speed">Speed</string>
+    <string name="Safety">Safety</string>
+    <string name="Lights">Lights</string>
+    <string name="Media">Media</string>
+    <string name="Personalization">Personalization</string>
+    <string name="DrivingStreamData">DrivingStream</string>
+    <string name="DrivingHabitsData">DrivingHabits</string>
+    <string name="OBDOther">OBD_Other</string>
+    <string name="History">History</string>
+    <!-- #vehicle status ui -->
+    <string name="VIN">VIN#</string>
+    <string name="GearStatus">GearStatus</string>
+    <string name="VehicleType">VehicleType</string>
+    <string name="FuelType">Fuel Type</string>
+    <string name="CurrSpeed">Current Speed(mph)</string>
+    <string name="CurrGear">Current Gear</string>
+    <string name="IsCruiseOn">Cruise Control Status</string>
+    <string name="ChkSeatBelts">SeatBelts</string>
+    <string name="ChkDoors">Doors</string>
+    <!-- #vehicle parking ui -->
+    <string name="ParkingSecurityAlert">Security Alert</string>
+    <string name="ParkingLights">Parking Lights</string>
+    <string name="ParkingBrakes">Parking Brakes</string>
+    <!-- #vehicle overview ui -->
+    <string name="WMI">WMI#</string>
+    <string name="OVWVIN">VIN#</string>
+    <string name="VehicleType2">Vehicle Type</string>
+    <string name="Doors">Doors(1/2/3 row)</string>
+    <string name="Fueltype">Fuel Type</string>
+    <string name="OVWGearType">Gear Type</string>
+    <string name="WheelRadius">Wheel Radius</string>
+    <string name="WheelTrack">Wheel Track</string>
+    <!-- #vehicle maintenance ui -->
+    <string name="Odometer">Odometer</string>
+    <string name="TransmissionOilLvl">Transmission Oil Level(%)</string>
+    <string name="TransmissionOilTemp">Transmission Oil Temp.</string>
+    <string name="BrakeFluidLvl">Brake Fluid Level(%)</string>
+    <string name="WasherFluidLvl">Washer Fluid Level(%)</string>
+    <string name="MalfunctionIndicator">Malfunction Indicator</string>
+    <string name="BatteryVoltage">Battery Voltage</string>
+    <string name="BatteryCurrent">Battery Current</string>
+    <string name="TirePressureFL">TirePressure(FL)</string>
+    <string name="TirePressureFR">TirePressure(FR)</string>
+    <string name="TirePressureRL">TirePressure(RL)</string>
+    <string name="TirePressureRR">TirePressure(RR)</string>
+    <!-- #vehicle speed ui -->
+    <string name="RPM">RPM(*1000)</string>
+    <string name="TripMeter1">TripMeter1(miles)</string>
+    <string name="TripMeter2">TripMeter2(miles)</string>
+    <string name="TripMeter1AvgSpeed">TripMeter1 Avg. Speed(mph)</string>
+    <string name="TripMeter2AvgSpeed">TripMeter2 Avg. Speed(mph)</string>
+    <string name="TripMeter1FuelConsumption">TripMeter1 Fuel Consumption(gallons)</string>
+    <string name="TripMeter2FuelConsumption">TripMeter2 Fuel Consumption(gallons)</string>
+    <!-- #vehicle transmission ui -->
+    <string name="VehiclePowerMode">Vehilce Power Mode</string>
+    <string name="RemainingFuel">Remaining Fuel(%)</string>
+    <string name="RemainingFuelInGallons">Remaining Fuel(gallons)</string>
+    <string name="RemainingDrivingRange">Remaining Driving Range(miles)</string>
+    <string name="RemainingEngineOil">Remaining Engine Oil(%)</string>
+    <string name="EngineOilTemp">Engine Oil Temp.</string>
+    <string name="CoolantLevel">Coolant Level(%)</string>
+    <string name="CoolantTemp">Coolant Temp.</string>
+    <string name="StrngWheelAngle">Steering Wheel Angle</string>
+    <!-- #vehicle climate ui -->
+    <string name="IntTemp">Interior Temp.</string>
+    <string name="ExtTemp">Exterior Temp.</string>
+    <string name="RainSensorStatus">Rain Sensor Status</string>
+    <string name="MWSWiper">Main WindShield Wiper</string>
+    <string name="RWSWiper">Rear WindShiwld Wiper</string>
+    <string name="HVACFanDirn">HVAC Fan Direction</string>
+    <string name="HVACFanSpeed">HVAC Fan Speed</string>
+    <string name="AC">AirConditioner</string>
+    <string name="AirCirculation">AirCirculation</string>
+    <string name="Heater">Heater</string>
+    <string name="DriverSeatHeater">Driver Seat heater</string>
+    <string name="PsngrSeatHeater">Passenger Seat Heater</string>
+    <string name="DefrostMWS">Main WindShield Defrost</string>
+    <string name="DefrostRWS">Rear WindShield Defrost</string>
+    <string name="DefrostFrontWindow">Front Window Defrost</string>
+    <string name="DefrostRearWindow">Rear Window Defrost</string>
+    <string name="DefrostSideMirrors">Side Mirrors Defrost</string>
+    <string name="DriverWindow">Driver Window</string>
+    <string name="PsngrWindow">Passenger Window</string>
+    <string name="RearLeftWindow">Rear Left Window</string>
+    <string name="RearRightWindow">Rear Right Window</string>
+    <string name="SunRoofOpenStatus">Sunroof Status</string>
+    <string name="SunRoofTiltStatus">Sunroof Tilt Status</string>
+    <string name="ConvertibleRoof">Convertible Roof Status</string>
+
+    <!-- #vehicle safety ui -->
+    <string name="ABS">Antilock Brake System</string>
+    <string name="TCS">Traction Control System</string>
+    <string name="ESC">Electronic Stability Control</string>
+    <string name="TopSpeedLimit">Top Speed Limit</string>
+    <string name="AirBagDriver">Driver Airbag Status</string>
+    <string name="AirBagPsngr">Passenger Airbag</string>
+    <string name="AirBagSide">Side Airbag</string>
+    <string name="DriverDoor">Driver Door</string>
+    <string name="PsngrDoor">Passenger Door</string>
+    <string name="RearLeftDoor">Rear Left Door</string>
+    <string name="RearRightDoor">Rear Right Door</string>
+    <string name="TrunkDoor">Trunk Door</string>
+    <string name="FuelCap">Fuel Cap Status</string>
+    <string name="HoodStatus">Hood Status</string>
+    <string name="DriverDoorLock">Driver Door Lock</string>
+    <string name="PsngrDoorLock">Passenger Door Lock</string>
+    <string name="RearLeftDoorLock">Rear Left Door Lock</string>
+    <string name="RearRightDoorLock">Rear Right Door Lock</string>
+    <string name="ChildSafetyRearLeft">Child Safety Rear Left</string>
+    <string name="ChildSafetyRearRight">Child Safety Rear Right</string>
+    <string name="DriverOccupant">Driver Occupant</string>
+    <string name="PsngrOccupant">Passenger Occupant</string>
+    <string name="RearLeftOccupant">Rear Left Occupant</string>
+    <string name="RearRightOccupant">Rear Right Occupant</string>
+    <string name="RearCenterOccupant">Rear Center Occupant</string>
+    <string name="DriverSeatBelt">Driver Seat Belt</string>
+    <string name="PsngrSeatBelt">Passenger Seat Belt</string>
+    <string name="RearLeftSeatBelt">Rear Left Seat Belt</string>
+    <string name="RearRightSeatBelt">Rear Right Seat Belt</string>
+    <string name="RearCenterSeatBelt">Rear Center Seat Belt</string>
+    <string name="DriverWindowLock">Driver Window</string>
+    <string name="PsngrWindowLock">Passenger Window</string>
+    <string name="RearLeftWindowLock">Rear Left Window</string>
+    <string name="RearRightWindowLock">Rear Right Window</string>
+    <string name="ObstacleDistSensorStatus">Obstacle Distance Sensor</string>
+    <string name="ObstacleDistFrontCenter">Obstacle Distance Center</string>
+    <string name="ObstacleDistFrontLeft">Obstacle Distance Front Left</string>
+    <string name="ObstacleDistFrontRight">Obstacle Distance Front Right</string>
+    <string name="ObstacleDistRearCenter">Obstacle Distance Rear Center</string>
+    <string name="ObstacleDistRearLeft">Obstacle Distance Rear Left</string>
+    <string name="ObstacleDistRearRight">Obstacle Distance Rear Right</string>
+    <string name="ObstacleDistMiddleLeft">Obstacle Distance Middle Left</string>
+    <string name="ObstacleDistMiddleRight">Obstacle Distance Middle Right</string>
+    <string name="FrontCollisonDetectionStatus">Front Collision Detection</string>
+    <string name="FrontCollisonDetectionDistance">Front Collision Detection Distance</string>
+    <string name="FrontCollisonDetectionTime">Front Collision Detection Time</string>
+
+    <!-- Driing Stream ui -->
+    <string name="CanBoxType">CanBox Type</string>
+    <string name="CarModel">Car Model</string>
+    <string name="ProtocolVersion">Protocol Version</string>
+    <string name="EngineLoad">Engine Load</string>
+    <string name="EngineSpeed">Engine Speed</string>
+    <string name="VehicleSpeed">Vehicle Speed</string>
+    <string name="ThrotilePosn">Throtile Position</string>
+    <string name="InstantFuelConsume">Instant Fuel Consume</string>
+    <string name="AVGFuelConsume">AVG Fuel Consume(L/100km)</string>
+    <string name="CurTravelOdometer">Current Odometer(km)</string>
+    <string name="TotalOdometer">Total Odometer(km)</string>
+    <string name="CurTravelFuelConsume">Current Fuel Consume(L)</string>
+    <string name="TotalFuelConsume">Total Fuel Consume(L)</string>
+    <string name="MalfunctionIndicatorNo">Malfunction Indicator Number</string>
+    <string name="CurTravelQuickSpeedUpTimes">Current QS.UP Times</string>
+    <string name="CurTravelQuickSpeedDownTimes">Current QS.DOWN Times</string>
+
+    <!-- Driving Habits -->
+    <string name="TotalIgnitionTimes">Total Ignition Times</string>
+    <string name="TotalDriveTime">Total Drive Time(h)</string>
+    <string name="TotalIdleTime">Total Idle Time(h)</string>
+    <string name="AVGWarmUpTime">AVG WarmUp Time(s)</string>
+    <string name="AVGVehicleSpeed">AVG Vehicle Speed(km/h)</string>
+    <string name="HistoryHigestVehicleSpeed">History Higest VSpeed(km/h)</string>
+    <string name="HistoryHigestEngineSpeed">History Higest ESpeed(rpm)</string>
+    <string name="TotalTravelQuickSpeedUpTimes">Total QS.UP Times</string>
+    <string name="TotalTravelQuickSpeedDownTimes">Total QS.DOWN Times</string>
+    <string name="LeftFuel">Left Fuel</string>
+
+    <!-- OBD Other -->
+    <string name="FuelPressure">Fuel Pressure</string>
+    <string name="InpipePressure">Inpipe Pressure</string>
+    <string name="IgnitionAngle">Ignition Angle</string>
+    <string name="IntakeTemp">Intake Temp</string>
+    <string name="IntakeFlowRate">"Intake Flow Rate(g/s)"</string>
+    <string name="VacuumOilRailPressure">Vacuum O.RAIL Pressure</string>
+    <string name="VehicleProtocolName">Vehicle Protocol Name</string>
+    <string name="ModuleSNCode">Module SN Code</string>
+    <string name="HWVersion">HW Version</string>
+    <string name="SWVersion">SW Version</string>
+    <string name="ReqDrivingTimeInfo">ReqDrivingTimeInfo</string>
+    <string name="ReqOdonmeterInfo">ReqOdonmeterInfo</string>
+    <string name="ReqDeviceInfo">ReqDeviceInfo</string>
+    <string name="ReqFuelConsumeInfo">ReqFuelConsumeInfo</string>
+    <string name="ClearCacheData">ClearCacheData</string>
+    <string name="ClearDTCCodes">ClearDTCCodes</string>
+    <string name="Restart">Restart</string>
+    <string name="Sleep">Sleep</string>
+    <!-- #vehicle lights ui -->
+    <string name="HeadLights">Head Lights</string>
+    <string name="AutomaticHeadLights">Auto. Head Lights</string>
+    <string name="HighBeam">High Beam</string>
+    <string name="DynamicHighBeam">Dynamic High Beam</string>
+    <string name="LeftIndicator">Left Indicator</string>
+    <string name="RightIndicator">Right Indicator</string>
+    <string name="BrakeLight">Brake Lights</string>
+    <string name="FogFrontLight">Fog Front Light</string>
+    <string name="FogRearLight">Fog Rear Light</string>
+    <string name="HazardLight">Hazard Light</string>
+    <string name="IntDriverLight">Interior Driver Light</string>
+    <string name="IntPsngrLight">Interior Passenger Light</string>
+    <string name="IntCenterLight">Interior Center Light</string>
+    <string name="Int3rdRowLight">Interior 3rd Row Light</string>
+    <!-- #vehicle media ui -->
+    <string name="VolumeLevel">Volume</string>
+    <string name="FadeLevel">Fade</string>
+    <string name="Treble">Treble</string>
+    <string name="Bass">Bass</string>
+    <string name="ScreenBrightness">Brightness</string>
+    <string name="RearLeftHeadPhoneStatus">Rear Left Headphone</string>
+    <string name="RearLeftHeadPhoneVolume">Rear Left Headphone Volume</string>
+    <string name="RearRightHeadPhoneStatus">Rear Right Headphone</string>
+    <string name="RearRightHeadPhoneVolume">Rear Right Headphone Volume</string>
+    <string name="RadioStatus">Radio</string>
+    <string name="RadioStation">Radio Station</string>
+    <string name="CDSTATUS">CD</string>
+    <string name="DynamicAdaptSound">Dynamic Adapt Sound</string>
+    <string name="DynamicAdaptDisplay">Dynamic Adapt Display</string>
+    <string name="BTStatus">BT</string>
+    <string name="USBMediaStatus">USB Media</string>
+    <string name="AudioSource">Audio Source</string>
+
+    <!-- #vehicle personalization ui -->
+    <string name="KeyId">Key-Id</string>
+    <string name="Language">Language</string>
+    <string name="MeasurementSystem">Measurement System</string>
+    <string name="MeasurementFuelConsumpation">Fuel Consumption</string>
+    <string name="MeasurementDistance">Distance</string>
+    <string name="MeasurementSpeed">Speed</string>
+    <string name="DriverMirror">Driver Mirror</string>
+    <string name="PsngrMirror">Passenger Mirror</string>
+    <string name="InteriorMirror">Interior Mirror</string>
+    <string name="StrngWheelSlidePosn">Steering Wheel Slide Position</string>
+    <string name="StrngWheelTiltPosn">Steering Wheel Tilt Position</string>
+    <string name="DrivingMode">Driving Mode</string>
+    <string name="DrvrSeatReclineSeatBackPosn">Driver Seat Reclient Seat Back Position</string>
+    <string name="DrvrSeatPosnSlide">Driver Seat Slide Position</string>
+    <string name="DrvrSeatPosnCushionHt">Driver Seat Cushion Height</string>
+    <string name="DrvrSeatPosnHeadRest">Driver Head Rest Position</string>
+    <string name="DrvrSeatBackCushionPosn">Driver Seat Back Cushion Position</string>
+    <string name="DrvrSeatBackCushionSlidePosn">Driver Seat Back Cushion Slide Position</string>
+    <string name="PsngrSeatReclineSeatBackPosn">Passenger Seat Reclient Seat Back Position</string>
+    <string name="PsngrSeatPosnSlide">Passenger Seat Slide Position</string>
+    <string name="PsngrSeatPosnCushionHt">Passenger Seat Cushion Height</string>
+    <string name="PsngrSeatPosnHeadRest">Passenger Head Rest Position</string>
+    <string name="PsngrSeatBackCushionPosn">Passenger Seat Back Cushion Position</string>
+    <string name="PsngrSeatBackCushionSlidePosn">Passenger Seat Back Cushion Slide Position</string>
+    <string name="DashBoardIllumination">Dashboard Illumination</string>
+    <string name="VehicleSoundMode">Vehicle Sound Mode</string>
+    <string name="RadioBtnON">ON</string>
+    <string name="RadioBtnOFF">OFF</string>
+    <string name="RadioBtnEnable">Enable</string>
+    <string name="RadioBtnDisable">Disable</string>
+    <string name="RadioBtnOpen">Open</string>
+    <string name="RadioBtnClose">Close</string>
+    <string name="RadioBtnLock">Lock</string>
+    <string name="RadioBtnUnLock">Unlock</string>
+    <string name="RadioBtnOccupied">Occupied</string>
+    <string name="RadioBtnUnOccupied">Not occupied</string>
+    <string name="UIBackBtn">Home</string>
+    <string name="UIOnetoTwoBtn">Next</string>
+    <string name="UITwotoThreeBtn">Next</string>
+    <string name="UITwotoOneBtn">Prev</string>
+    <string name="UIThreetoTwoBtn">Prev</string>
+    <string name="McuUpgradeInit">MCU升级初始化中...</string>
+    <string name="McuUpgradeStart">MCU升级开始</string>
+    <string name="McuUpgradeErase">MCU升级擦除中...</string>
+    <string name="McuUpgradeWriting">MCU开始数据写入...</string>
+    <string name="McuUpgradeVertify">MCU升级数据写入完成，确认中...</string>
+    <string name="McuUpgradeSuccess">MCU升级成功,即重启！！！</string>
+    <string name="McuUpgradeFailed">MCU升级失败！！！</string>
+    <string name="McuUpgradeProgress">MCU数据写入进度:</string>
+
+    <string-array name="volume_level_list_items">
+        <item>10</item>
+        <item>9</item>
+        <item>8</item>
+        <item>7</item>
+        <item>6</item>
+        <item>5</item>
+        <item>4</item>
+        <item>3</item>
+        <item>2</item>
+        <item>1</item>
+        <item>0</item>
+    </string-array>
+
+    <string name="title_activity_dvr">DVRActivity</string>
+    <string name="title_activity_tpms">TPMSActivity</string>
+
+</resources>

@@ -5,5 +5,10 @@
 	<classpathentry kind="con" path="org.eclipse.andmore.ANDROID_FRAMEWORK"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.andmore.LIBRARIES"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.andmore.DEPENDENCIES"/>
+	<classpathentry kind="lib" path="E:/eclipse/android-sdk/platforms/android-19/android.jar" sourcepath="E:/eclipse/android-sdk/sources/android-19">
+		<accessrules>
+			<accessrule kind="nonaccessible" pattern="com/android/internal/**"/>
+		</accessrules>
+	</classpathentry>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

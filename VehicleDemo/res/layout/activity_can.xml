@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+*    Copyright (c) 2014 Qualcomm Technologies, Inc. All Rights Reserved.
+*    Qualcomm Technologies Proprietary and Confidential.
+*
+*/
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:scrollbars="none" >
+
+    <GridLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:columnCount="2"
+    android:rowCount="2"
+    android:orientation="horizontal" >
+    
+        <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:columnCount="1"
+        android:rowCount="20"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:orientation="vertical" >
+        
+            <TextView
+            android:layout_width="350px"
+            android:layout_height="70px"
+            android:text="@string/CanBoxType"/>
+            
+            <TextView
+            android:layout_width="350px"
+            android:layout_height="70px"
+            android:text="@string/CarModel"/>
+            
+            <TextView
+            android:layout_width="350px"
+            android:layout_height="70px"
+            android:text="@string/ProtocolVersion"/>
+            
+            <TextView
+            android:layout_width="350px"
+            android:layout_height="70px"
+            android:text="@string/EngineSpeed"/>
+            
+            <TextView
+            android:layout_width="350px"
+            android:layout_height="70px"
+            android:text="@string/VehicleSpeed"/>
+            
+            <TextView
+            android:layout_width="350px"
+            android:layout_height="70px"
+            android:text="@string/TotalOdometer"/>
+            
+            <TextView
+            android:layout_width="350px"
+            android:layout_height="70px"
+            android:text="@string/LeftFuel"/>
+            
+            <TextView
+            android:layout_width="350px"
+            android:layout_height="70px"
+            android:text="@string/CoolantTemp"/>
+            
+            <TextView
+            android:layout_width="350px"
+            android:layout_height="70px"
+            android:text="@string/BatteryVoltage"/>
+            
+            <TextView
+            android:layout_width="350px"
+            android:layout_height="70px"
+            android:text="@string/DriverSeatBelt"/>
+            
+            <TextView
+            android:layout_width="350px"
+            android:layout_height="70px"
+            android:text="@string/DriverDoor"/>
+            
+            <TextView
+            android:layout_width="350px"
+            android:layout_height="70px"
+            android:text="@string/WasherFluidLvl"/>
+            
+            <TextView
+            android:layout_width="350px"
+            android:layout_height="70px"
+            android:text="@string/ParkingBrakes"/>
+            
+            <Button 
+             	android:id="@+id/syncMediaInfoBtn"
+            	android:layout_width="350px"
+            	android:layout_height="80px"
+            	android:text="SyncMediaInfo"/>
+            
+            <Button 
+             	android:id="@+id/syncBtPhoneInfoBtn"
+            	android:layout_width="350px"
+            	android:layout_height="80px"
+            	android:text="SyncBtPhoneInfo"/>
+            
+            <Button 
+             	android:id="@+id/reqCommonBtn"
+            	android:layout_width="350px"
+            	android:layout_height="80px"
+            	android:text="ReqCommonBtn"/>
+            
+            <Button 
+             	android:id="@+id/start"
+            	android:layout_width="350px"
+            	android:layout_height="80px"
+            	android:text="Start"/>
+            <Button 
+             	android:id="@+id/reqACInfo"
+            	android:layout_width="350px"
+            	android:layout_height="80px"
+            	android:text="AVM Switch"/>
+            
+            <Button 
+             	android:id="@+id/reqSyncTimeBtn"
+            	android:layout_width="350px"
+            	android:layout_height="80px"
+            	android:text="ReqSyncTime"/>
+            
+
+        </GridLayout>
+        <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:columnCount="1"
+        android:rowCount="19"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:orientation="vertical" >
+            
+            <Spinner 
+                android:id="@+id/CanBoxTypeSpinner"
+                android:layout_width="350px"
+            	android:layout_height="70px"/>
+            
+            <Spinner 
+                android:id="@+id/CarModelSpinner"
+                android:layout_width="350px"
+           		 android:layout_height="70px"/>
+            
+            <EditText
+            android:id="@+id/ProtocolVersion"
+            android:layout_width="350px"
+            android:layout_height="70px"
+            android:editable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="right|bottom"/>
+            
+            <EditText
+            android:id="@+id/EngineSpeed"
+            android:layout_width="350px"
+            android:layout_height="70px"
+            android:editable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="right|bottom"/>
+            <EditText
+            android:id="@+id/VehicleSpeed"
+            android:layout_width="350px"
+            android:layout_height="70px"
+            android:editable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="right|bottom"/>
+            <EditText
+            android:id="@+id/TotalOdometer"
+            android:layout_width="350px"
+            android:layout_height="70px"
+            android:editable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="right|bottom"/>
+            
+            <EditText
+            android:id="@+id/LeftFuel"
+            android:layout_width="350px"
+            android:layout_height="70px"
+            android:editable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="right|bottom"/>
+            <EditText
+            android:id="@+id/CoolantTemp"
+            android:layout_width="350px"
+            android:layout_height="70px"
+            android:editable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="right|bottom"/>
+             <EditText
+            android:id="@+id/BatteryVoltage"
+            android:layout_width="350px"
+            android:layout_height="70px"
+            android:editable="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="right|bottom"/>
+             
+             <EditText
+            android:id="@+id/DriverSeatBelt"
+            android:layout_width="350px"
+            android:layout_height="70px"
+            android:editable="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="right|bottom"/>
+             <EditText
+            android:id="@+id/DriverDoor"
+            android:layout_width="350px"
+            android:layout_height="70px"
+            android:editable="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="right|bottom"/>
+             <EditText
+            android:id="@+id/WashFuelLVI"
+            android:layout_width="350px"
+            android:layout_height="70px"
+            android:editable="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="right|bottom"/>
+             <EditText
+            android:id="@+id/ParkingBrakes"
+            android:layout_width="350px"
+            android:layout_height="70px"
+            android:editable="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="right|bottom"/>
+            
+             <EditText
+            android:id="@+id/MediaInfoText"
+            android:layout_width="350px"
+            android:layout_height="70px"
+            android:editable="true"
+            android:gravity="right|bottom"/>
+             
+             <EditText
+            android:id="@+id/BtPhoneInfoText"
+            android:layout_width="350px"
+            android:layout_height="70px"
+            android:editable="true"
+            android:gravity="right|bottom"/>
+             
+             <EditText
+            android:id="@+id/CommonInfoText"
+            android:layout_width="350px"
+            android:layout_height="70px"
+            android:editable="true"
+            android:gravity="right|bottom"/>
+             
+            <Button 
+             	android:id="@+id/stop"
+            	android:layout_width="350px"
+            	android:layout_height="80px"
+            	android:text="Stop"/>
+            <Button 
+             	android:id="@+id/reqVehicleInfo"
+            	android:layout_width="350px"
+            	android:layout_height="80px"
+            	android:text="ReqVehicleInfo"/>            
+        </GridLayout>
+        
+        <TextView
+        android:id="@+id/logView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:minHeight="100dp"
+        android:layout_rowSpan="1"
+        android:layout_columnSpan="2"
+        android:background="#558877"
+        android:fadeScrollbars="false"
+        android:scrollbars="vertical"
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#ffffff" />
+    </GridLayout>
+</ScrollView>

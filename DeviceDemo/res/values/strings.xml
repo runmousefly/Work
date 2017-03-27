@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">DeviceDemo</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_inter_phone_demo">InterPhoneDemo</string>
+    <string name="title_activity_ranging_demo">RangingDemo</string>
+
+</resources>

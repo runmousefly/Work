@@ -9,4 +9,9 @@
     <string name="title_upgrade_dialog">新版本更新</string>
 	<string name="cancel_upgrade_dialog">下次更新</string>
 	<string name="ok_upgrade_dialog">立刻更新</string>
+	<string name="set_password">请设置密码</string>
+	<string name="input_password">请输入密码</string>
+	<string name="input_password_again">请再次输入密码</string>
+	<string name="btn_ok">确认</string>
+	<string name="btn_cancel">取消</string>
 </resources>

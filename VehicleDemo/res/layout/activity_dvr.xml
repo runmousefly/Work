@@ -1,0 +1,116 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/dvrTypeBtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="DVR type" />
+
+            <EditText
+                android:id="@+id/dvrTypeText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="3"
+                android:editable="true" >
+            </EditText>
+        </LinearLayout>
+        
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/upBtn"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal"
+            android:text="Up" />
+
+        <Button
+            android:id="@+id/downBtn"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal"
+            android:text="Down" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/leftBtn"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal"
+            android:text="Left" />
+
+        <Button
+            android:id="@+id/rightBtn"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal"
+            android:text="Right" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/okBtn"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal"
+            android:text="OK" />
+
+        <Button
+            android:id="@+id/cancelBtn"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal"
+            android:text="Cancel" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/logView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:background="#558877"
+        android:fadeScrollbars="false"
+        android:scrollbars="vertical"
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#ffffff" />
+
+</LinearLayout>
