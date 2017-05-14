@@ -155,7 +155,7 @@ public class DVRManager
 		}
 		mDVRType = newType;
 		mMcuMangaer.postDVRType(communicateType);
-		mService.saveSettings(CarService.SHARED_PREFERENCES_KEY_DVR_TYPE, String.valueOf(mDVRType));
+		mService.saveSetting(CarService.SHARED_PREFERENCES_KEY_DVR_TYPE, String.valueOf(mDVRType));
 	}
 	
 	public boolean sendKey(int key)

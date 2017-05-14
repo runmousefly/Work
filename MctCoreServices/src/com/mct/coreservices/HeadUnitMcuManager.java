@@ -23,6 +23,7 @@ import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.ContentObserver;
 import android.media.AudioManager;
 import android.media.AudioSystem;
@@ -35,6 +36,7 @@ import android.os.ServiceManager;
 import android.os.SystemClock;
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
+import android.text.style.TabStopSpan;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.widget.AutoCompleteTextView.Validator;
@@ -42,6 +44,7 @@ import android.widget.AutoCompleteTextView.Validator;
 public class HeadUnitMcuManager extends MctVehicleManager implements McuSerial.Listener
 {
 	public static String TAG = "HeadUnitMcuManager";
+	public static String TAG1 = "AudioTest";
 		
 	private CarService mService = null;
 	private DVRManager mDVRManager = null;
@@ -86,6 +89,12 @@ public class HeadUnitMcuManager extends MctVehicleManager implements McuSerial.L
 	
 	private boolean mReverseStatus = false;
 	
+	private AudioManager mAudioManager = null;
+	private int mMixEnable = 1;
+	private int mMixLevel = 7;
+	private int mMediaStreamVolume = -1;
+	
+	
 	@Override
 	public boolean onInitManager(CarService service)
 	{
@@ -101,6 +110,13 @@ public class HeadUnitMcuManager extends MctVehicleManager implements McuSerial.L
 		{
 			mTpmsManager = new TPMSManager();
 		}
+		
+		mAudioManager = new AudioManager(service.getApplicationContext());
+		//mMixEnable = mService.loadSettingsToInt(CarService.SHARED_PREFERENCES_KEY_MIX_ENABLE);
+		//mMixLevel = mService.loadSettingsToInt(CarService.SHARED_PREFERENCES_KEY_MIX_LEVEL);
+		//mService.cachePropValueOnly(VehicleInterfaceProperties.VIM_MCU_GPS_MIX_ENABLE_PROPERTY, String.valueOf(mMixEnable));
+		//mService.cachePropValueOnly(VehicleInterfaceProperties.VIM_MCU_GPS_MIX_LEVEL_PROPERTY, String.valueOf(mMixLevel));
+		
 		mSerial.init(ServiceHelper.DEFAULT_PACKAGE_LEN, ServiceHelper.WAIT_MINIMUM, ServiceHelper.WAIT_MINIMUM, 1);
 		mSerial.requestListener(this);
 		
@@ -176,7 +192,7 @@ public class HeadUnitMcuManager extends MctVehicleManager implements McuSerial.L
 	{
 		// TODO Auto-generated method stub
 		Log.i(TAG, "onDeinitManager");
-		
+		mAudioManager = null;
 		stopSourceSyncTimer();
 		if(mService != null && mBrightnessObserver != null)
 		{
@@ -556,14 +572,17 @@ public class HeadUnitMcuManager extends MctVehicleManager implements McuSerial.L
 					break;
 				//设置媒体音量
 				case VehicleInterfaceProperties.VIM_MCU_MEDIA_VOLUME_PROPERTY:
+					Log.i(TAG1,"set media volume:"+value);
 					postData(HeadUnitMcuProtocol.AM_CMD_SET_VOLUME, new int[]{HeadUnitMcuProtocol.VOLUME_TYPE_MEDIA,Integer.valueOf(value)});
 					break;
 				//设置蓝牙电话音量
 				case VehicleInterfaceProperties.VIM_MCU_BT_PHONE_VOLUME_PROPERTY:
+					Log.i(TAG1,"set phone volume:"+value);
 					postData(HeadUnitMcuProtocol.AM_CMD_SET_VOLUME, new int[]{HeadUnitMcuProtocol.VOLUME_TYPE_BT_PHONE,Integer.valueOf(value)});
 					break;
 				//设置导航音量
 				case VehicleInterfaceProperties.VIM_MCU_NAVIGATION_VOLUME_PROPERTY:
+					Log.i(TAG1,"set navi volume:"+value);
 					postData(HeadUnitMcuProtocol.AM_CMD_SET_VOLUME, new int[]{HeadUnitMcuProtocol.VOLUME_TYPE_NAVIGATION,Integer.valueOf(value)});
 					break;
 				case VehicleInterfaceProperties.VIM_MCU_BT_CON_STATE_PROPERTY:
@@ -574,6 +593,22 @@ public class HeadUnitMcuManager extends MctVehicleManager implements McuSerial.L
 					break;
 				//设置GPS混音开关
 				case VehicleInterfaceProperties.VIM_MCU_GPS_MIX_ENABLE_PROPERTY:
+					Log.i(TAG1,"set mix enable:"+value);
+					mMixEnable = Integer.valueOf(value);
+					/*
+					mService.getMainHandler().removeMessages(CarService.MSG_UPDATE_MIX_ENABLE);
+					Message msgMixEnable = mService.getMainHandler().obtainMessage();
+					msgMixEnable.arg1 = Integer.valueOf(value);
+					
+					msgMixEnable.what = CarService.MSG_UPDATE_MIX_ENABLE;
+					mService.getMainHandler().sendMessageDelayed(msgMixEnable, 900);*/
+					//在混音播报过程中关闭混音,恢复导航音量
+					if(mMixEnable == 0 && mMediaStreamVolume >= 0)
+					{
+						Log.i(TAG1,"recovery media volume when disable mix in gps playing:"+mMediaStreamVolume);
+						AudioSystem.setMcStreamVolume(AudioManager.STREAM_MUSIC, mMediaStreamVolume, 0);
+						mMediaStreamVolume = -1;
+					}
 					postData(HeadUnitMcuProtocol.AM_CMD_SET_GPS_INFO, new int[]{0x01,Integer.valueOf(value)});
 					break;
 				case VehicleInterfaceProperties.VIM_MCU_GPS_MONITOR_ENABLE_PROPERTY:
@@ -581,6 +616,13 @@ public class HeadUnitMcuManager extends MctVehicleManager implements McuSerial.L
 					break;
 				//设置GPS混音比例
 				case VehicleInterfaceProperties.VIM_MCU_GPS_MIX_LEVEL_PROPERTY:
+					Log.i(TAG1,"set mix level:"+value);
+					mMixLevel = Integer.valueOf(value);
+					/*mService.getMainHandler().removeMessages(CarService.MSG_UPDATE_MIX_LEVEL);
+					Message msgMixLevel = mService.getMainHandler().obtainMessage();
+					msgMixLevel.arg1 = Integer.valueOf(value);
+					msgMixLevel.what = CarService.MSG_UPDATE_MIX_LEVEL;
+					mService.getMainHandler().sendMessageDelayed(msgMixLevel, 900);*/
 					postData(HeadUnitMcuProtocol.AM_CMD_SET_GPS_INFO, new int[]{0x02,Integer.valueOf(value)});
 					break;
 				//设置EQ-低音值
@@ -891,7 +933,34 @@ public class HeadUnitMcuManager extends MctVehicleManager implements McuSerial.L
 					break;
 				//模拟通道
 				case VehicleInterfaceProperties.VIM_MCU_NAV_AUDIO_CHANNEL_PROPERTY:
-					postData(HeadUnitMcuProtocol.AM_CMD_PLAY_GPS_SOUND, new int[]{Integer.valueOf(value)});
+					{
+						Log.i(TAG1, "Navi Play:"+value);
+						int ttsOn = Integer.valueOf(value);
+						//播报开始
+						if(ttsOn == 1)
+						{
+							int curNaviVolume = AudioSystem.getMcStreamVolume(AudioManager.STREAM_DTMF, 2);//mAudioManager.getStreamVolume(AudioManager.STREAM_DTMF);
+							int mixMediaVolume = Math.round(curNaviVolume*mMixLevel*1.0f/10.0f);
+							mMediaStreamVolume = AudioSystem.getMcStreamVolume(AudioManager.STREAM_MUSIC, 2);//mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
+							Log.i(TAG1,"Navi Play:set mix volume,media volume from "+mMediaStreamVolume+" to "+mixMediaVolume+",mixLevel:"+mMixLevel+",navi volume:"+curNaviVolume);
+							if(mMediaStreamVolume > mixMediaVolume)
+							{
+								AudioSystem.setMcStreamVolume(AudioManager.STREAM_MUSIC,mixMediaVolume, 0);
+							}
+							else
+							{
+								Log.i(TAG1,"Navi Play:media volume is too low ,and not need to set");
+							}
+						}
+						//播报结束
+						else if(ttsOn == 0 && mMediaStreamVolume >= 0)
+						{
+							Log.i(TAG1,"Navi Play:recovery media volume:"+mMediaStreamVolume);
+							AudioSystem.setMcStreamVolume(AudioManager.STREAM_MUSIC, mMediaStreamVolume, 0);
+							mMediaStreamVolume = -1;
+						}
+					}
+					//postData(HeadUnitMcuProtocol.AM_CMD_PLAY_GPS_SOUND, new int[]{Integer.valueOf(value)});
 					break;
 				//I2S通道开关
 				case VehicleInterfaceProperties.VIM_MCU_ARM_AUDIO_CHANNEL_PROPERTY:
@@ -2126,9 +2195,11 @@ public class HeadUnitMcuManager extends MctVehicleManager implements McuSerial.L
 							mService.cachePropValue(VehicleInterfaceProperties.VIM_MCU_GPS_MONITOR_ENABLE_PROPERTY, String.valueOf(param[1]), true);
 							break;
 						case HeadUnitMcuProtocol.GPS_SET_MIX_STATUS:
+							mMixEnable = param[1];
 							mService.cachePropValue(VehicleInterfaceProperties.VIM_MCU_GPS_MIX_ENABLE_PROPERTY, String.valueOf(param[1]), true);
 							break;
 						case HeadUnitMcuProtocol.GPS_SET_MIX_LEVEL:
+							mMixLevel = param[1];
 							mService.cachePropValue(VehicleInterfaceProperties.VIM_MCU_GPS_MIX_LEVEL_PROPERTY, String.valueOf(param[1]), true);
 							break;
 						default:
@@ -2550,5 +2621,4 @@ public class HeadUnitMcuManager extends MctVehicleManager implements McuSerial.L
 		}
 		return false;
 	}
-
 }

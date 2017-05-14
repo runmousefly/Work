@@ -45,6 +45,7 @@ import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
 import android.os.SystemClock;
+import android.renderscript.Script.KernelID;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.KeyEvent;
@@ -66,9 +67,13 @@ public class CarService extends Service
 	public static final int 		MSG_PLATFORM_SLEEP				= 	0x03;
 	public static final int 		MSG_PLATFORM_WAKEUP 		= 	0x04;
 	public static final int 		MSG_PLAY_BEEP						= 0x09;
+	public static final int 		MSG_UPDATE_MIX_ENABLE		= 0x0A;
+	public static final int 		MSG_UPDATE_MIX_LEVEL			= 0x0B;
+	
 	public static final String 	ACTION_PLATFORM_SLEEP		= "com.android.suyoung.sleep";
 	public static final String 	ACTION_PLATFORM_WAKEUP 	= "com.android.suyoung.wakeup";
 	public static final String 	KEY_DATA 								= 	"Data";
+	
 	
 	public static final int 		MSG_MCU_UPGRADE_FAILED    = 0xA0;
 	public static final String   KEY_UPGRADE_FAILED_COUNT = "upgrade_failed_count";
@@ -136,6 +141,9 @@ public class CarService extends Service
 	public static final String SHARED_PREFERENCES_NAME 					= "CarService";
 	public static final String SHARED_PREFERENCES_KEY_CAR_MODEL 	= "CarModel";
 	public static final String SHARED_PREFERENCES_KEY_DVR_TYPE 	= "DvrType";
+	
+	public static final String SHARED_PREFERENCES_KEY_MIX_ENABLE 	= "MixEnable";
+	public static final String SHARED_PREFERENCES_KEY_MIX_LEVEL 	= "MixLevel";
 			
 	//private static final int		HISTORY_PROPERTY_CACHE_MAX	= 20;
 	
@@ -520,6 +528,12 @@ public class CarService extends Service
 					case MSG_PLAY_BEEP:
 						
 						break;
+					case MSG_UPDATE_MIX_ENABLE:
+						saveSetting(SHARED_PREFERENCES_KEY_MIX_ENABLE, msg.arg1);					
+						break;
+					case MSG_UPDATE_MIX_LEVEL:
+						saveSetting(SHARED_PREFERENCES_KEY_MIX_LEVEL, msg.arg1);
+						break;
 					default:
 						break;
 				}
@@ -774,11 +788,56 @@ public class CarService extends Service
 		return getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE).getString(key, null);
 	}
 	
-	public boolean saveSettings(String key,String value)
+	public int loadSettingsToInt(String key)
+	{
+		return getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE).getInt(key, 0);
+	}
+	
+	public boolean saveSetting(String key,String value)
 	{
 		Log.i(TAG, "save settings,key:"+key+",value:"+value);
 		SharedPreferences.Editor editor = getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE).edit();
 		editor.putString(key, value);
+		return editor.commit();
+	}
+	
+	public boolean saveSetting(String key,int value)
+	{
+		Log.i(TAG, "save settings,key:"+key+",value:"+value);
+		SharedPreferences.Editor editor = getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE).edit();
+		editor.putInt(key, value);
+		return editor.commit();
+	}
+	
+	public boolean saveSettings(String[] key,String[] value)
+	{
+		if(key == null || value == null || key.length == 0 || 
+				value.length == 0 || key.length != value.length)
+		{
+			return false;
+		}
+		SharedPreferences.Editor editor = getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE).edit();
+		for(int i=0;i<key.length;i++)
+		{
+			Log.i(TAG, "save settings,key:"+key[i]+",value:"+value[i]);
+			editor.putString(key[i], value[i]);
+		}
+		return editor.commit();
+	}
+	
+	public boolean saveSettings(String[] key,int[] value)
+	{
+		if(key == null || value == null || key.length == 0 || 
+				value.length == 0 || key.length != value.length)
+		{
+			return false;
+		}
+		SharedPreferences.Editor editor = getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE).edit();
+		for(int i=0;i<key.length;i++)
+		{
+			Log.i(TAG, "save settings,key:"+key[i]+",value:"+value[i]);
+			editor.putInt(key[i], value[i]);
+		}
 		return editor.commit();
 	}
 	

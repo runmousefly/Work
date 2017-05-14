@@ -15,7 +15,6 @@ public class StartupReceiver extends BroadcastReceiver
 		if(intent.getAction().equals(Intent.ACTION_BOOT_COMPLETED))
 		{
 			Log.v(LOG_TAG, "onReceive BOOT_COMPLETED");
-			//ComponentName componentName = context.startService(new Intent(context, CarService.class));
 		}
 	}
 }
